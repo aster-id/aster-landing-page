@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Aster ID — a home for researchers on the open web</title>
+<meta name="description" content="Verified identity and sovereign data storage for scientists on the AT Protocol. Independent, not-for-profit. Launching autumn 2026." />
+<meta property="og:title" content="Aster ID" />
+<meta property="og:description" content="A home for researchers on the open web. Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform." />
+<meta property="og:image" content="aster-lockup.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="aster-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #4A357E; -webkit-font-smoothing: antialiased; }
+  a { color: #F7F5F2; text-decoration: none; }
+  a:hover { color: #C6B6EC; }
+  *:focus-visible { outline: 2px solid #C6B6EC; outline-offset: 4px; border-radius: 2px; }
+  ::placeholder { color: rgba(247, 245, 242, 0.42); }
+  @keyframes watermarkIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 0.045; transform: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes markIn { from { opacity: 0; transform: rotate(-80deg) scale(0.88); } to { opacity: 1; transform: none; } }
+  @keyframes handleSwap { 0%, 7% { opacity: 0; } 20%, 88% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes bloom { 0% { opacity: 0; transform: scale(0.3) rotate(-45deg); } 65% { opacity: 1; transform: scale(1.05) rotate(5deg); } 100% { opacity: 0.92; transform: scale(1) rotate(0deg); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; box-sizing: border-box; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 48px; padding: 64px 24px 34px; background: linear-gradient(180deg, #4A357E 0%, #4A357E 58%, #422E72 100%); color: #F7F5F2; font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', sans-serif;">
+  <sc-if value="{{ showWatermark }}" hint-placeholder-val="{{ true }}">
+    <img src="aster-mark.png" alt="" aria-hidden="true" style="position: absolute; left: -22vmin; bottom: -26vmin; width: 78vmin; opacity: 0.045; pointer-events: none; animation: watermarkIn 2200ms ease-out both;" />
+  </sc-if>
+
+  <div style="flex: 0 0 auto;"></div>
+
+  <main style="position: relative; z-index: 1; width: 100%; max-width: 560px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+
+    <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="aster-lockup.png" alt="Aster ID" style="width: 186px; height: auto;" />
+        <h1 style="margin: 46px 0 0; font-family: 'EB Garamond', Garamond, 'Times New Roman', serif; font-weight: 400; font-size: 46px; line-height: 1.14; letter-spacing: -0.005em; text-wrap: pretty; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 80ms both;">A home for researchers on the open web.</h1>
+        <p style="margin: 40px 0 0; font-family: 'EB Garamond', Garamond, serif; font-size: 34px; line-height: 1.2; letter-spacing: 0.005em; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 160ms both;"><span style="color: #C6B6EC; border-bottom: 1px solid rgba(198, 182, 236, 0.5); padding-bottom: 2px;" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"><span style="{{ fadeStyle }}">{{ handleName }}</span></span><span>.aster.id</span></p>
+        <p style="margin: 32px 0 0; max-width: 470px; font-size: 15px; line-height: 1.65; color: rgba(247, 245, 242, 0.75); text-wrap: pretty; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 240ms both;">Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isHandleFirst }}">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="aster-mark.png" alt="Aster ID" style="width: 40px; height: 40px; opacity: 0.9;" />
+        <p style="margin: 44px 0 0; font-family: 'EB Garamond', Garamond, serif; font-size: 66px; line-height: 1.05; letter-spacing: -0.01em; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 80ms both;"><span style="color: #C6B6EC; border-bottom: 1px solid rgba(198, 182, 236, 0.5); padding-bottom: 4px;" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"><span style="{{ fadeStyle }}">{{ handleName }}</span></span><span>.aster.id</span></p>
+        <h1 style="margin: 34px 0 0; font-family: 'EB Garamond', Garamond, serif; font-weight: 400; font-size: 23px; line-height: 1.3; color: rgba(247, 245, 242, 0.92); animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 160ms both;">A home for researchers on the open web.</h1>
+        <p style="margin: 26px 0 0; max-width: 470px; font-size: 15px; line-height: 1.65; color: rgba(247, 245, 242, 0.75); text-wrap: pretty; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 240ms both;">Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isTypeOnly }}">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <p style="margin: 0; font-family: 'EB Garamond', Garamond, serif; font-size: 15px; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(247, 245, 242, 0.8); animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) both;">Aster ID</p>
+        <div style="width: 44px; height: 1px; margin: 26px 0 0; background: rgba(247, 245, 242, 0.28); animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 60ms both;"></div>
+        <h1 style="margin: 40px 0 0; font-family: 'EB Garamond', Garamond, serif; font-weight: 400; font-size: 52px; line-height: 1.1; letter-spacing: -0.01em; text-wrap: pretty; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 140ms both;">A home for researchers on the open web.</h1>
+        <p style="margin: 38px 0 0; font-family: 'EB Garamond', Garamond, serif; font-style: italic; font-size: 32px; line-height: 1.2; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 220ms both;"><span style="color: #C6B6EC; border-bottom: 1px solid rgba(198, 182, 236, 0.5); padding-bottom: 2px;" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"><span style="{{ fadeStyle }}">{{ handleName }}</span></span><span>.aster.id</span></p>
+        <p style="margin: 32px 0 0; max-width: 470px; font-size: 15px; line-height: 1.65; color: rgba(247, 245, 242, 0.75); text-wrap: pretty; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 300ms both;">Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.</p>
+      </div>
+    </sc-if>
+
+    <div style="width: 100%; max-width: 440px; margin: 52px 0 0; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 320ms both;">
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" noValidate="{{ true }}" style="display: flex; flex-direction: column; align-items: stretch; gap: 10px;">
+          <div style="display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap;">
+            <label for="aster-email" style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;">Email address</label>
+            <input id="aster-email" name="email" type="email" autoComplete="email" placeholder="your@university.edu" value="{{ email }}" onChange="{{ onEmailChange }}" aria-invalid="{{ invalid }}" aria-describedby="aster-email-error" style="flex: 1 1 210px; min-width: 0; box-sizing: border-box; padding: 10px 2px; background: transparent; border: 0; border-bottom: 1px solid rgba(247, 245, 242, 0.34); color: #F7F5F2; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 15px; line-height: 1.4; transition: border-color 220ms ease;" style-focus="border-bottom-color: #C6B6EC; outline: none;" style-hover="border-bottom-color: rgba(247, 245, 242, 0.6);" />
+            <button type="submit" style="flex: 0 0 auto; padding: 11px 26px; border: 1px solid #F7F5F2; border-radius: 999px; background: #F7F5F2; color: #4A357E; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; cursor: pointer; transition: background 220ms ease, color 220ms ease, border-color 220ms ease;" style-hover="background: #C6B6EC; border-color: #C6B6EC; color: #38265F;">Notify me</button>
+          </div>
+          <p id="aster-email-error" role="status" style="margin: 0; min-height: 18px; text-align: left; font-size: 13px; line-height: 1.4; color: #E9B4B4;">{{ error }}</p>
+        </form>
+      </sc-if>
+      <sc-if value="{{ submitted }}">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 18px;">
+          <img src="aster-mark.png" alt="" aria-hidden="true" style="width: 34px; height: 34px; animation: bloom 1400ms cubic-bezier(0.22, 0.61, 0.36, 1) both;" />
+          <p style="margin: 0; font-family: 'EB Garamond', Garamond, serif; font-size: 21px; line-height: 1.4; animation: rise 800ms ease-out 220ms both;">Thank you — we'll write to you when Aster ID opens.</p>
+        </div>
+      </sc-if>
+    </div>
+
+    <p style="margin: 34px 0 0; font-size: 12.5px; letter-spacing: 0.06em; color: rgba(247, 245, 242, 0.5); animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 400ms both;">Launching autumn 2026.</p>
+  </main>
+
+  <footer style="position: relative; z-index: 1; width: 100%; max-width: 640px; display: flex; flex-direction: column; align-items: center; gap: 18px; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 480ms both;">
+    <sc-if value="{{ isTypeOnly }}">
+      <img src="aster-mark.png" alt="Aster ID" style="width: 26px; height: 26px; opacity: 0.6;" />
+    </sc-if>
+    <nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 42px; font-size: 12.5px; letter-spacing: 0.05em; color: rgba(247, 245, 242, 0.62);">
+      <a href="#" style="color: inherit; padding: 6px 2px;" style-hover="color: #C6B6EC;">ATScience</a>
+      <a href="#" style="color: inherit; padding: 6px 2px;" style-hover="color: #C6B6EC;">Modal Foundation</a>
+    </nav>
+    <p style="margin: 0; text-align: center; font-size: 12px; line-height: 1.5; color: rgba(247, 245, 242, 0.42);">A project of ATScience, fiscally hosted by the Modal Foundation.</p>
+  </footer>
+
+  <div style="position: absolute; right: 22px; bottom: 22px; z-index: 2; display: flex; align-items: center; gap: 6px; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 560ms both;">
+    <a href="https://bsky.app" target="_blank" rel="noopener" aria-label="Aster ID on Bluesky" title="Bluesky" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: rgba(247, 245, 242, 0.55); transition: color 220ms ease;" style-hover="color: #C6B6EC;">
+      <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"></path></svg>
+    </a>
+    <a href="mailto:hello@aster.id" aria-label="Email Aster ID" title="Contact" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: rgba(247, 245, 242, 0.55); transition: color 220ms ease;" style-hover="color: #C6B6EC;">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><path d="M3 6.5 12 13l9-6.5"></path></svg>
+    </a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroTreatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;balanced&quot;,&quot;handle-first&quot;,&quot;type-only&quot;],&quot;default&quot;:&quot;balanced&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;cycleHandles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showWatermark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+/* ───── SWAP ME: email capture endpoint (POST, JSON body {email}) ───── */
+const SIGNUP_ENDPOINT = "https://example.org/aster-id/subscribe";
+/* ──────────────────────────────────────────────────────────────────── */
+
+const HANDLES = ["your.name", "your.lab", "your.organization"];
+
+class Component extends DCLogic {
+  state = { idx: 0, fading: false, email: "", error: "", submitted: false };
+
+  componentDidMount() {
+    this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.start();
+  }
+  componentWillUnmount() { this.stop(); }
+
+  start() {
+    const on = this.props.cycleHandles ?? true;
+    if (this.reduced || !on || this.timer) return;
+    // one clock: fade out, swap text while invisible, fade back in
+    this.timer = setInterval(() => {
+      this.setState({ fading: true });
+      this.swapTimer = setTimeout(() => {
+        this.setState(s => ({ idx: (s.idx + 1) % HANDLES.length, fading: false }));
+      }, 620);
+    }, 3200);
+  }
+  stop() {
+    clearInterval(this.timer); this.timer = null;
+    clearTimeout(this.swapTimer);
+    if (this.state.fading) this.setState({ fading: false });
+  }
+
+  submit(e) {
+    e.preventDefault();
+    const email = (this.state.email || "").trim();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) {
+      this.setState({ error: email ? "That doesn't look like an email address." : "Please enter your email address." });
+      return;
+    }
+    this.setState({ error: "", submitted: true });
+    try {
+      fetch(SIGNUP_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      }).catch(() => {});
+    } catch (err) {}
+  }
+
+  renderVals() {
+    const t = this.props.heroTreatment ?? "balanced";
+    return {
+      isBalanced: t === "balanced",
+      isHandleFirst: t === "handle-first",
+      isTypeOnly: t === "type-only",
+      showWatermark: (this.props.showWatermark ?? true) && t !== "type-only",
+      handleName: HANDLES[this.state.idx],
+      fadeStyle: { opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
+      email: this.state.email,
+      error: this.state.error,
+      invalid: !!this.state.error,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onEmailChange: e => this.setState({ email: e.target.value, error: "" }),
+      onSubmit: e => this.submit(e),
+      pauseCycle: () => this.stop(),
+      resumeCycle: () => this.start()
+    };
+  }
+}
+
+</script>
+</body>
+</html>
