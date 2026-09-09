@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node build.mjs",
+    "format": "prettier --write template.html"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
   }
 }

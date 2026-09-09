@@ -1,7 +1,6 @@
 # Aster ID — landing page
 
-A single-screen "coming soon" landing page for **Aster ID** — verified identity and
-sovereign data storage for scientists on the AT Protocol.
+A single-screen "coming soon" landing page for **Aster ID** — verified identity and sovereign data storage for scientists on the AT Protocol.
 
 ## Files
 
@@ -23,40 +22,35 @@ sovereign data storage for scientists on the AT Protocol.
 2. Run **`npm run build`** (or `node build.mjs`).
 3. Commit the regenerated `Aster ID.dc.html` and deploy / re-import to Durable.
 
-`build.mjs` replaces `%%KEY%%` tokens in `template.html` with the matching
-front-matter value from `content.md`. Optional filters: `%%KEY|attr%%`
-(HTML-escape, default), `%%KEY|json%%` (emits a JSON/JS string literal, used in
-the `<script>` and JSON-LD blocks), `%%KEY|raw%%`. The build fails if a token has
-no matching key. See the field reference at the bottom of `content.md`.
+`build.mjs` replaces `%%KEY%%` tokens in `template.html` with the matching front-matter value from `content.md`. Optional filters: `%%KEY|attr%%` (HTML-escape, default), `%%KEY|json%%` (emits a JSON/JS string literal, used in the `<script>` and JSON-LD blocks), `%%KEY|raw%%`. The build fails if a token has no matching key. See the field reference at the bottom of `content.md`.
+
+### Formatting
+
+`template.html` is formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width).
+
+- **`npm run format`** — reformat `template.html` in place.
+- **`npx prettier --check template.html`** — verify without writing (CI-friendly).
+
+Formatting is safe: the build output is semantically identical before/after Prettier (verified by diffing normalized builds), so format freely while editing.
 
 ### Hero treatments
 
-Three interchangeable hero layouts, switchable via the `heroTreatment` prop
-(`balanced` \| `handle-first` \| `type-only`; default set by `hero_treatment` in
-`content.md`). Props also cover `cycleHandles` (animated handle swap — list in
-`content.md` `handles`) and `showWatermark`.
+Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`balanced` \| `handle-first` \| `type-only`; default set by `hero_treatment` in `content.md`). Props also cover `cycleHandles` (animated handle swap — list in `content.md` `handles`) and `showWatermark`.
 
 ## Deploy checklist — before launch
 
 Set these in `content.md`, then rebuild:
 
-- [ ] **Signup endpoint** — `signup_endpoint` is `https://example.org/aster-id/subscribe`.
-      Point it at the real POST endpoint (JSON body `{ email }`). Note the client
-      currently swallows fetch errors silently — consider surfacing failures.
+- [ ] **Signup endpoint** — `signup_endpoint` is `https://example.org/aster-id/subscribe`. Point it at the real POST endpoint (JSON body `{ email }`). Note the client currently swallows fetch errors silently — consider surfacing failures.
 - [ ] **Footer links** — `footer_link_1_href` / `footer_link_2_href` are `#`.
-- [ ] **Production domain** — `domain` is `https://aster.id/` (must end with `/`).
-      Feeds the canonical / Open Graph / JSON-LD URLs.
-- [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie
-      consent if Durable injects any cookies/analytics). Not yet wired into the template.
+- [ ] **Production domain** — `domain` is `https://aster.id/` (must end with `/`). Feeds the canonical / Open Graph / JSON-LD URLs.
+- [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie consent if Durable injects any cookies/analytics). Not yet wired into the template.
 
 ---
 
 ## Website Specification audit
 
-Audited against the [Website Specification](https://specification.website) checklist
-(`mcp.specification.website/mcp` — tools: `search`, `list_topics`, `get_topic`,
-`get_checklist`, `audit_url`). `audit_url` needs a public URL, so re-run it against the
-deployed site to cover the server/header items below.
+Audited against the [Website Specification](https://specification.website) checklist (`mcp.specification.website/mcp` — tools: `search`, `list_topics`, `get_topic`, `get_checklist`, `audit_url`). `audit_url` needs a public URL, so re-run it against the deployed site to cover the server/header items below.
 
 ### Fixes applied (in `template.html`)
 
@@ -78,8 +72,7 @@ Reduced motion (CSS `@media` + JS `matchMedia` guard), visible `:focus-visible`
 outline, accessible form (hidden `<label>`, `aria-invalid`, `aria-describedby`,
 `role="status"` error), decorative images `alt="" aria-hidden`, semantic
 `<main>` / `<footer>` / `<nav>`, `type="email"` + `autocomplete`, font `preconnect`
-+ `display=swap`, `dvh` units, `rel="noopener"` on external links,
-`text-wrap: pretty`, `<meta charset>` + `<meta viewport>` (zoom not disabled).
++ `display=swap`, `dvh` units, `rel="noopener"` on external links, `text-wrap: pretty`, `<meta charset>` + `<meta viewport>` (zoom not disabled).
 
 ### Open — needs input or a deployed site
 
