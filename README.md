@@ -7,14 +7,11 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 | File | Purpose |
 |------|---------|
 | `content.md` | **Edit here.** All copy + config (front-matter block) with a field reference below it. |
-| `template.html` | The markup. `%%PLACEHOLDER%%` markers are filled from `content.md`; Durable's `{{ }}` bindings are left untouched. Edit for structural/style changes. |
-| `build.mjs` | Zero-dependency build: `content.md` + `template.html` → `Aster ID.dc.html`. |
-| `Aster ID.dc.html` | **Generated — do not edit.** The deployable page / Durable component export (`<x-dc>` / `<sc-if>` / `{{ }}` rendered client-side by `support.js`). |
-| `support.js` | Durable runtime that expands the `<x-dc>` template. |
+| `template.html` | Site styling - edit for structural/style changes. `%%PLACEHOLDER%%` markers are filled from `content.md`. `{{ }}` are runtime bindings. |
+| `Aster ID.dc.html` | **Generated — do not edit.** The deployable page. |
 | `aster-lockup.png` | Wordmark lockup (1268×318). |
 | `aster-mark.png` | Icon mark (193×193). Also used as favicon / apple-touch-icon. |
 | `uploads/` | Durable asset staging. |
-| `docs/` | `deciduous` decision-graph export (`graph-data.json`). |
 
 ## Editing & building
 
@@ -28,10 +25,8 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 
 `template.html` is formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width).
 
-- **`npm run format`** — reformat `template.html` in place.
-- **`npx prettier --check template.html`** — verify without writing (CI-friendly).
-
-Formatting is safe: the build output is semantically identical before/after Prettier (verified by diffing normalized builds), so format freely while editing.
+- **`npm run format`** — reformat `template.html` in place
+- **`npx prettier --check template.html`** — verify without writing
 
 ### Hero treatments
 
@@ -48,33 +43,9 @@ Set these in `content.md`, then rebuild:
 
 ---
 
-## Website Specification audit
+## Website Specification
 
-Audited against the [Website Specification](https://specification.website) checklist (`mcp.specification.website/mcp` — tools: `search`, `list_topics`, `get_topic`, `get_checklist`, `audit_url`). `audit_url` needs a public URL, so re-run it against the deployed site to cover the server/header items below.
-
-### Fixes applied (in `template.html`)
-
-| Spec item | Change |
-|-----------|--------|
-| `lang` attribute (Required) | `<html lang="en">` |
-| `color-scheme` / `theme-color` (Recommended) | Added `<meta name="color-scheme" content="dark">` and `<meta name="theme-color" content="#4A357E">` |
-| Script loading (Recommended) | `support.js` now loads with `defer` |
-| Canonical URL (Recommended) | Added `<link rel="canonical" href="https://aster.id/">` |
-| Open Graph / Twitter (Recommended) | Added `og:url`; made `og:image` absolute; added `twitter:image`; added `apple-touch-icon` |
-| Structured data / JSON-LD (Recommended) | Added `Organization` JSON-LD block after `</x-dc>` |
-| Image optimisation / CLS (Required) | Added intrinsic `width`/`height` + `decoding="async"` to all `<img>`; `loading="lazy"` on the decorative watermark |
-| Descriptive link text / empty links | `SWAP ME` marker on the two placeholder footer links |
-| Touch target size (Required) | Footer nav link padding `6px 2px → 11px 8px`; submit button `11px 26px → 13px 26px` |
-
-### Already conformant
-
-Reduced motion (CSS `@media` + JS `matchMedia` guard), visible `:focus-visible`
-outline, accessible form (hidden `<label>`, `aria-invalid`, `aria-describedby`,
-`role="status"` error), decorative images `alt="" aria-hidden`, semantic
-`<main>` / `<footer>` / `<nav>`, `type="email"` + `autocomplete`, font `preconnect`
-+ `display=swap`, `dvh` units, `rel="noopener"` on external links, `text-wrap: pretty`, `<meta charset>` + `<meta viewport>` (zoom not disabled).
-
-### Open — needs input or a deployed site
+Audit website against the [Website Specification](https://specification.website) checklist. `audit_url` needs a public URL, so re-run it against the deployed site to cover the server/header items below.
 
 | Spec item | Action |
 |-----------|--------|
