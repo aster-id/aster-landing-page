@@ -31,15 +31,18 @@ eyebrow: Aster ID
 headline: A home for researchers on the open web.
 body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers."
 
-# Signup form
-signup_endpoint: https://example.org/aster-id/subscribe
+# Signup form — subscribes via Leaflet (https://leaflet.pub), a real GET
+# submission (not JS/fetch), so leaflet_subscribe_action must stay exactly
+# as issued for this publication. Leaflet emails a confirmation link and
+# sends the subscriber to leaflet_redirect_url.
+leaflet_subscribe_url: https://leaflet.pub/api/auth/email-login
+leaflet_subscribe_action: "%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D"
+leaflet_redirect_url: https://aster.leaflet.pub
 email_label: Email address
-email_placeholder: your@university.edu
-submit_button: Notify me
+email_placeholder: you@example.com
+submit_button: Sign up for updates
 error_invalid: That doesn't look like an email address.
 error_empty: Please enter your email address.
-error_network: Something went wrong — please try again.
-success_message: Thank you — we'll write to you when Aster ID opens.
 tagline: Launching autumn 2026.
 
 # Footer (the two links appear inline in the fine-print sentence: "An {1} project, fiscally hosted by the {2}.")
@@ -70,12 +73,12 @@ Everything the build reads lives in the `---` block above. Notes:
 | `eyebrow` | Small uppercase label — only shown in the `type-only` treatment |
 | `headline` | The `<h1>` (same across all three treatments) |
 | `body` | Supporting paragraph (same across all three treatments) |
-| `signup_endpoint` | `POST` target for the email form (JSON body `{ email }`) |
+| `leaflet_subscribe_url` | The signup `<form>`'s `action` (Leaflet's email-login endpoint) |
+| `leaflet_subscribe_action` | Hidden `action` field — encodes the Leaflet publication being subscribed to. Opaque; don't hand-edit, only replace wholesale if Leaflet reissues it |
+| `leaflet_redirect_url` | Hidden `redirect` field — where Leaflet sends the subscriber after confirming |
 | `email_label` | Visually-hidden `<label>` for the email input |
 | `email_placeholder` / `submit_button` | Form input placeholder / button text |
-| `error_invalid` / `error_empty` | Client-side validation messages |
-| `error_network` | Shown if the signup POST fails (network/server error) — the form stays editable so the visitor can retry |
-| `success_message` | Shown after a successful submit |
+| `error_invalid` / `error_empty` | Client-side validation messages (only shown when the browser blocks submission, e.g. bad email format) |
 | `tagline` | Line under the form (`Launching autumn 2026.`) |
 | `footer_link_1_*` / `footer_link_2_*` | Label + href for the two inline links in the footer's fine-print sentence |
 

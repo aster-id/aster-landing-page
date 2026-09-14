@@ -121,20 +121,6 @@
               opacity: 0;
             }
           }
-          @keyframes bloom {
-            0% {
-              opacity: 0;
-              transform: scale(0.3) rotate(-45deg);
-            }
-            65% {
-              opacity: 1;
-              transform: scale(1.05) rotate(5deg);
-            }
-            100% {
-              opacity: 0.92;
-              transform: scale(1) rotate(0deg);
-            }
-          }
           @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -377,100 +363,90 @@
           </sc-if>
 
           <div style="width: 100%; max-width: 440px; margin: 52px 0 0; animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 320ms both">
-            <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-              <form onSubmit="{{ onSubmit }}" novalidate="{{ true }}" style="display: flex; flex-direction: column; align-items: stretch; gap: 10px">
-                <div style="display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap">
-                  <label
-                    for="aster-email"
-                    style="
-                      position: absolute;
-                      width: 1px;
-                      height: 1px;
-                      margin: -1px;
-                      padding: 0;
-                      overflow: hidden;
-                      clip: rect(0 0 0 0);
-                      white-space: nowrap;
-                      border: 0;
-                    "
-                    >Email address</label
-                  >
-                  <input
-                    id="aster-email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="your@university.edu"
-                    value="{{ email }}"
-                    onChange="{{ onEmailChange }}"
-                    aria-invalid="{{ invalid }}"
-                    aria-describedby="aster-email-error"
-                    style="
-                      flex: 1 1 210px;
-                      min-width: 0;
-                      box-sizing: border-box;
-                      padding: 10px 2px;
-                      background: transparent;
-                      border: 0;
-                      border-bottom: 1px solid rgba(247, 245, 242, 0.34);
-                      color: #f7f5f2;
-                      font-family: var(--font-sans);
-                      font-size: 15px;
-                      line-height: 1.4;
-                      transition: border-color 220ms ease;
-                    "
-                    style-focus="border-bottom-color: #C6B6EC; outline: none;"
-                    style-hover="border-bottom-color: rgba(247, 245, 242, 0.6);"
-                  />
-                  <button
-                    type="submit"
-                    style="
-                      flex: 0 0 auto;
-                      padding: 13px 26px;
-                      border: 1px solid #f7f5f2;
-                      border-radius: 999px;
-                      background: #f7f5f2;
-                      color: #4a357e;
-                      font-family: var(--font-sans);
-                      font-size: 14px;
-                      font-weight: 700;
-                      letter-spacing: 0.01em;
-                      cursor: pointer;
-                      transition:
-                        background 220ms ease,
-                        color 220ms ease,
-                        border-color 220ms ease;
-                    "
-                    style-hover="background: #C6B6EC; border-color: #C6B6EC; color: #38265F;"
-                  >
-                    Notify me
-                  </button>
-                </div>
-                <p
-                  id="aster-email-error"
-                  role="status"
-                  style="margin: 0; min-height: 18px; text-align: left; font-size: 13px; line-height: 1.4; color: #e9b4b4"
+            <form
+              action="https://leaflet.pub/api/auth/email-login"
+              method="get"
+              onSubmit="{{ onSubmit }}"
+              novalidate="{{ true }}"
+              style="display: flex; flex-direction: column; align-items: stretch; gap: 10px"
+            >
+              <input type="hidden" name="action" value="%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D" />
+              <input type="hidden" name="redirect" value="https://aster.leaflet.pub" />
+              <div style="display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap">
+                <label
+                  for="aster-email"
+                  style="
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    padding: 0;
+                    overflow: hidden;
+                    clip: rect(0 0 0 0);
+                    white-space: nowrap;
+                    border: 0;
+                  "
+                  >Email address</label
                 >
-                  {{ error }}
-                </p>
-              </form>
-            </sc-if>
-            <sc-if value="{{ submitted }}">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
-                <img
-                  src="uploads/aster-mark-white.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width="193"
-                  height="193"
-                  decoding="async"
-                  style="width: 34px; height: 34px; animation: bloom 1400ms cubic-bezier(0.22, 0.61, 0.36, 1) both"
+                <input
+                  id="aster-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  value="{{ email }}"
+                  onChange="{{ onEmailChange }}"
+                  aria-invalid="{{ invalid }}"
+                  aria-describedby="aster-email-error"
+                  style="
+                    flex: 1 1 210px;
+                    min-width: 0;
+                    box-sizing: border-box;
+                    padding: 10px 2px;
+                    background: transparent;
+                    border: 0;
+                    border-bottom: 1px solid rgba(247, 245, 242, 0.34);
+                    color: #f7f5f2;
+                    font-family: var(--font-sans);
+                    font-size: 15px;
+                    line-height: 1.4;
+                    transition: border-color 220ms ease;
+                  "
+                  style-focus="border-bottom-color: #C6B6EC; outline: none;"
+                  style-hover="border-bottom-color: rgba(247, 245, 242, 0.6);"
                 />
-                <p style="margin: 0; font-family: var(--font-serif); font-size: 21px; line-height: 1.4; animation: rise 800ms ease-out 220ms both">
-                  Thank you — we'll write to you when Aster ID opens.
-                </p>
+                <button
+                  type="submit"
+                  style="
+                    flex: 0 0 auto;
+                    padding: 13px 26px;
+                    border: 1px solid #f7f5f2;
+                    border-radius: 999px;
+                    background: #f7f5f2;
+                    color: #4a357e;
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: 0.01em;
+                    cursor: pointer;
+                    transition:
+                      background 220ms ease,
+                      color 220ms ease,
+                      border-color 220ms ease;
+                  "
+                  style-hover="background: #C6B6EC; border-color: #C6B6EC; color: #38265F;"
+                >
+                  Sign up for updates
+                </button>
               </div>
-            </sc-if>
+              <p
+                id="aster-email-error"
+                role="status"
+                style="margin: 0; min-height: 18px; text-align: left; font-size: 13px; line-height: 1.4; color: #e9b4b4"
+              >
+                {{ error }}
+              </p>
+            </form>
           </div>
 
           <p
@@ -604,12 +580,11 @@
       data-dc-script
       data-props='{"heroTreatment":{"editor":"enum","options":["balanced","handle-first","type-only"],"default":"balanced","tsType":"string","section":"Hero"},"cycleHandles":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"},"showWatermark":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"}}'
     >
-      /* ───── endpoint + handles come from content.md ───── */
-      const SIGNUP_ENDPOINT = "https://example.org/aster-id/subscribe";
+      /* ───── handles come from content.md; signup posts to Leaflet (see the form's action/hidden fields) ───── */
       const HANDLES = ["@your-name","@your-lab","@your-org"];
 
       class Component extends DCLogic {
-        state = { idx: 0, fading: false, email: "", error: "", submitted: false };
+        state = { idx: 0, fading: false, email: "", error: "" };
 
         componentDidMount() {
           this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -635,20 +610,15 @@
         }
 
         submit(e) {
-          e.preventDefault();
           const email = (this.state.email || "").trim();
           if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) {
+            e.preventDefault();
             this.setState({ error: email ? "That doesn't look like an email address." : "Please enter your email address." });
             return;
           }
-          this.setState({ error: "", submitted: true });
-          try {
-            fetch(SIGNUP_ENDPOINT, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email })
-            }).catch(() => {});
-          } catch (err) {}
+          // valid: don't preventDefault — let the form really submit (GET) to Leaflet,
+          // which emails the subscriber a confirmation link and redirects them.
+          this.setState({ error: "" });
         }
 
         renderVals() {
@@ -663,8 +633,6 @@
             email: this.state.email,
             error: this.state.error,
             invalid: !!this.state.error,
-            submitted: this.state.submitted,
-            notSubmitted: !this.state.submitted,
             onEmailChange: e => this.setState({ email: e.target.value, error: "" }),
             onSubmit: e => this.submit(e),
             pauseCycle: () => this.stop(),
