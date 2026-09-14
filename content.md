@@ -13,6 +13,8 @@ site_name: Aster ID
 domain: https://aster.id/
 contact_email: hello@aster.id
 bluesky_url: https://bsky.app/profile/aster.id
+blog_url: https://aster.leaflet.pub
+roomy_url: https://roomy.space/did:plc:b6csk4ofw7vpwrgz2aci57ey
 parent_org: ATScience
 founding_year: 2026
 
@@ -62,6 +64,8 @@ Everything the build reads lives in the `---` block above. Notes:
 | `domain` | Canonical URL, `og:url`, `og:image` / `twitter:image` prefix, JSON-LD `url` / `logo`. **Must end with `/`.** |
 | `contact_email` | Footer contact link (`mailto:`) + JSON-LD `email` |
 | `bluesky_url` | Footer Bluesky icon link |
+| `blog_url` | Footer blog icon link (Aster ID's Leaflet publication) |
+| `roomy_url` | Footer Roomy chat icon link |
 | `parent_org` / `founding_year` | JSON-LD `parentOrganization` / `foundingDate` |
 | `page_title` | `<title>` |
 | `meta_description` | `<meta name="description">` |
