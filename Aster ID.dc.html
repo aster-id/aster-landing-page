@@ -11,11 +11,11 @@
     <x-dc>
       <helmet>
         <title>Aster ID — a home for researchers on the open web</title>
-        <meta name="description" content="Verified identity and sovereign data storage for scientists on the AT Protocol. Independent, not-for-profit. Launching autumn 2026." />
+        <meta name="description" content="Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching autumn 2026." />
         <link rel="canonical" href="https://aster.id/" />
         <meta property="og:url" content="https://aster.id/" />
         <meta property="og:title" content="Aster ID" />
-        <meta property="og:description" content="A home for researchers on the open web. Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform." />
+        <meta property="og:description" content="An account and hosting for researchers on the open web — a place to build and own your identity, website, data and connections. Not-for-profit, built by researchers, for researchers." />
         <meta property="og:image" content="https://aster.id/uploads/og-image.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -244,7 +244,7 @@
                   animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 240ms both;
                 "
               >
-                Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.
+                An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.
               </p>
             </div>
           </sc-if>
@@ -300,7 +300,7 @@
                   animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 240ms both;
                 "
               >
-                Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.
+                An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.
               </p>
             </div>
           </sc-if>
@@ -371,7 +371,7 @@
                   animation: rise 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 300ms both;
                 "
               >
-                Verified identity and data storage for scientists, on infrastructure that isn't owned by a platform. Independent, not-for-profit, and yours to take with you.
+                An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.
               </p>
             </div>
           </sc-if>
@@ -509,21 +509,12 @@
               style="width: 26px; height: 26px; opacity: 0.6"
             />
           </sc-if>
-          <nav
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-              gap: 14px 42px;
-              font-size: 12.5px;
-              letter-spacing: 0.05em;
-              color: rgba(247, 245, 242, 0.62);
-            "
-          >
-            <a href="https://atproto.science/" style="color: inherit; padding: 11px 8px" style-hover="color: #C6B6EC;">ATScience</a>
-            <a href="https://www.modalfoundation.org/" style="color: inherit; padding: 11px 8px" style-hover="color: #C6B6EC;">Modal Foundation</a>
-          </nav>
-          <p style="margin: 0; text-align: center; font-size: 12px; line-height: 1.5; color: rgba(247, 245, 242, 0.42)">An ATScience project, fiscally hosted by the Modal Foundation.</p>
+          <p style="margin: 0; text-align: center; font-size: 12px; line-height: 1.5; color: rgba(247, 245, 242, 0.42)">
+            An
+            <a href="https://atproto.science/" style="color: #f7f5f2" style-hover="color: #C6B6EC;">ATScience</a>
+            project, fiscally hosted by the
+            <a href="https://www.modalfoundation.org/" style="color: #f7f5f2" style-hover="color: #C6B6EC;">Modal Foundation</a>.
+          </p>
         </footer>
 
         <div
@@ -539,7 +530,7 @@
           "
         >
           <a
-            href="https://bsky.app"
+            href="https://bsky.app/profile/aster.id"
             target="_blank"
             rel="noopener"
             aria-label="Aster ID on Bluesky"
@@ -602,7 +593,7 @@
         "name": "Aster ID",
         "url": "https://aster.id/",
         "logo": "https://aster.id/uploads/og-image.png",
-        "description": "Verified identity and sovereign data storage for scientists on the AT Protocol. Independent, not-for-profit.",
+        "description": "Account and hosting for researchers on the open web: a place to build and own your identity, website, data and connections. Independent, not-for-profit, and built by researchers, for researchers.",
         "email": "hello@aster.id",
         "foundingDate": "2026",
         "parentOrganization": { "@type": "Organization", "name": "ATScience" }
@@ -615,7 +606,7 @@
     >
       /* ───── endpoint + handles come from content.md ───── */
       const SIGNUP_ENDPOINT = "https://example.org/aster-id/subscribe";
-      const HANDLES = ["your-name","your-lab","your-org"];
+      const HANDLES = ["@your-name","@your-lab","@your-org"];
 
       class Component extends DCLogic {
         state = { idx: 0, fading: false, email: "", error: "", submitted: false };
