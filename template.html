@@ -149,6 +149,26 @@
           font-family: var(--font-sans);
         "
       >
+        <a
+          href="%%ABOUT_URL|attr%%"
+          target="_blank"
+          rel="noopener"
+          style="
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            z-index: 3;
+            padding: 10px 12px;
+            color: rgba(247, 245, 242, 0.75);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            transition: color 220ms ease;
+          "
+          style-hover="color: #C6B6EC;"
+          >%%ABOUT_LABEL%%</a
+        >
+
         <sc-if value="{{ showWatermark }}" hint-placeholder-val="{{ true }}">
           <img
             src="uploads/aster-mark-white.svg"
