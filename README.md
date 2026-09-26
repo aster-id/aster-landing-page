@@ -7,8 +7,9 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 | File | Purpose |
 |------|---------|
 | `content.md` | **Edit here.** All copy + config (front-matter block) with a field reference below it. |
-| `template.html` | Site styling - edit for structural/style changes. `%%PLACEHOLDER%%` markers are filled from `content.md`. `{{ }}` are runtime bindings. |
-| `Aster ID.dc.html` | **Generated — do not edit.** The deployable page. |
+| `template.html` | HTML structure. `%%PLACEHOLDER%%` markers are filled from `content.md`. `{{ }}` are runtime bindings. |
+| `styles.css` | **Edit here.** All styling (design tokens, layout, components, animations). Inlined at build time. |
+| `Aster ID.dc.html` | **Generated — do not edit.** The deployable single-file page. |
 | `aster-lockup.png` | Wordmark lockup (1268×318). |
 | `aster-mark.png` | Icon mark (193×193). Also used as favicon / apple-touch-icon. |
 | `uploads/` | Durable asset staging. |
@@ -23,10 +24,10 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 
 ### Formatting
 
-`template.html` is formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width).
+`template.html` and `styles.css` are formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width).
 
-- **`npm run format`** — reformat `template.html` in place
-- **`npx prettier --check template.html`** — verify without writing
+- **`npm run format`** — reformat both files in place
+- **`npx prettier --check template.html styles.css`** — verify without writing
 
 ### Hero treatments
 
@@ -36,8 +37,8 @@ Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`ba
 
 Set these in `content.md`, then rebuild:
 
-- [ ] **Signup endpoint** — `signup_endpoint` is `https://example.org/aster-id/subscribe`. Point it at the real POST endpoint (JSON body `{ email }`). Note the client currently swallows fetch errors silently — consider surfacing failures.
-- [ ] **Footer links** — `footer_link_1_href` / `footer_link_2_href` are `#`.
+- [ ] **Signup flow** — verify the Leaflet subscription and confirmation redirect on the deployed page.
+- [ ] **Footer links** — verify ATScience and Modal Foundation destinations.
 - [ ] **Production domain** — `domain` is `https://aster.id/` (must end with `/`). Feeds the canonical / Open Graph / JSON-LD URLs.
 - [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie consent if Durable injects any cookies/analytics). Not yet wired into the template.
 

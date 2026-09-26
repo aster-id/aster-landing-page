@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "format": "prettier --write template.html"
+    "format": "prettier --write template.html styles.css"
   },
   "devDependencies": {
     "prettier": "^3.9.6"

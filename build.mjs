@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Build `Aster ID.dc.html` from `template.html` + copy/config in `content.md`.
+// Build `Aster ID.dc.html` from `template.html` + `styles.css` + copy/config in `content.md`.
 // Zero dependencies. Run: `npm run build` (or `node build.mjs`).
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -9,6 +9,7 @@ import { dirname, join } from "node:path";
 const root = dirname(fileURLToPath(import.meta.url));
 const CONTENT = join(root, "content.md");
 const TEMPLATE = join(root, "template.html");
+const STYLES = join(root, "styles.css");
 const OUTPUT = join(root, "Aster ID.dc.html");
 
 // ── parse the `---` front-matter block of content.md ────────────────
@@ -63,7 +64,14 @@ const values = {
 const template = readFileSync(TEMPLATE, "utf8");
 const missing = new Set();
 
-const output = template.replace(
+// inline styles.css first (it contains no %%KEY%% tokens of its own)
+if (!template.includes("%%CSS%%")) {
+  throw new Error("template.html: missing %%CSS%% marker for styles.css");
+}
+const css = readFileSync(STYLES, "utf8").trim();
+const styled = template.replace("%%CSS%%", () => css);
+
+const output = styled.replace(
   /%%([A-Z0-9_]+)(?:\|([a-z]+))?%%/g,
   (whole, key, filter) => {
     const k = key.toLowerCase();
