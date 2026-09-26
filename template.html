@@ -38,70 +38,62 @@
         </header>
 
         <main class="middle">
-          <div class="hero">
-            <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
-              <div class="stack">
-                <h1 class="headline headline--balanced">%%HEADLINE%%</h1>
-                <p class="handle-line handle-line--balanced">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>%%HANDLE_SUFFIX%%</span>
-                </p>
-                <p class="intro intro--balanced">%%BODY%%</p>
-              </div>
-            </sc-if>
-
-            <sc-if value="{{ isHandleFirst }}">
-              <div class="stack">
-                <p class="handle-line handle-line--handle">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>%%HANDLE_SUFFIX%%</span>
-                </p>
-                <h1 class="headline headline--handle">%%HEADLINE%%</h1>
-                <p class="intro intro--handle">%%BODY%%</p>
-              </div>
-            </sc-if>
-
-            <sc-if value="{{ isTypeOnly }}">
-              <div class="stack">
-                <p class="eyebrow">%%EYEBROW%%</p>
-                <div class="rule"></div>
-                <h1 class="headline headline--type">%%HEADLINE%%</h1>
-                <p class="handle-line handle-line--type">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>%%HANDLE_SUFFIX%%</span>
-                </p>
-                <p class="intro intro--type">%%BODY%%</p>
-              </div>
-            </sc-if>
-
-            <div class="signup">
-              <form class="signup-form" action="%%LEAFLET_SUBSCRIBE_URL|attr%%" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
-                <input type="hidden" name="action" value="%%LEAFLET_SUBSCRIBE_ACTION|attr%%" />
-                <input type="hidden" name="redirect" value="%%LEAFLET_REDIRECT_URL|attr%%" />
-                <div class="signup-row">
-                  <label for="aster-email" class="visually-hidden">%%EMAIL_LABEL%%</label>
-                  <input
-                    class="input"
-                    id="aster-email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="%%EMAIL_PLACEHOLDER|attr%%"
-                    value="{{ email }}"
-                    onChange="{{ onEmailChange }}"
-                    aria-invalid="{{ invalid }}"
-                    aria-describedby="aster-email-error"
-                  />
-                  <button class="button" type="submit">%%SUBMIT_BUTTON%%</button>
+          <div class="hero-layout">
+            <div class="hero">
+              <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
+                <div class="stack">
+                  <h1 class="headline headline--balanced">%%HEADLINE%%</h1>
+                  <p class="intro intro--balanced">%%BODY%%</p>
                 </div>
-                <p class="error" id="aster-email-error" role="status">{{ error }}</p>
-              </form>
-            </div>
+              </sc-if>
 
-            <p class="tagline">%%TAGLINE%%</p>
+              <sc-if value="{{ isHandleFirst }}">
+                <div class="stack">
+                  <h1 class="headline headline--handle">%%HEADLINE%%</h1>
+                  <p class="intro intro--handle">%%BODY%%</p>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isTypeOnly }}">
+                <div class="stack">
+                  <p class="eyebrow">%%EYEBROW%%</p>
+                  <div class="rule"></div>
+                  <h1 class="headline headline--type">%%HEADLINE%%</h1>
+                  <p class="intro intro--type">%%BODY%%</p>
+                </div>
+              </sc-if>
+
+              <div class="signup">
+                <form class="signup-form" action="%%LEAFLET_SUBSCRIBE_URL|attr%%" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
+                  <input type="hidden" name="action" value="%%LEAFLET_SUBSCRIBE_ACTION|attr%%" />
+                  <input type="hidden" name="redirect" value="%%LEAFLET_REDIRECT_URL|attr%%" />
+                  <div class="signup-row">
+                    <label for="aster-email" class="visually-hidden">%%EMAIL_LABEL%%</label>
+                    <input
+                      class="input"
+                      id="aster-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="%%EMAIL_PLACEHOLDER|attr%%"
+                      value="{{ email }}"
+                      onChange="{{ onEmailChange }}"
+                      aria-invalid="{{ invalid }}"
+                      aria-describedby="aster-email-error"
+                    />
+                    <button class="button" type="submit">%%SUBMIT_BUTTON%%</button>
+                  </div>
+                  <p class="error" id="aster-email-error" role="status">{{ error }}</p>
+                </form>
+              </div>
+
+              <p class="tagline">%%TAGLINE%%</p>
+            </div>
+            <aside class="id-card" aria-label="Example Aster ID">
+              <p class="handle-line" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}">
+                <span class="handle-name" style="{{ handleStyle }}">{{ handleName }}</span><span>%%HANDLE_SUFFIX%%</span>
+              </p>
+            </aside>
           </div>
         </main>
 
@@ -172,6 +164,7 @@
     >
       /* ───── handles come from content.md; signup submits to Leaflet via the form ───── */
       const HANDLES = %%HANDLES|json%%;
+      const HANDLE_WIDTH = Math.max(0, ...HANDLES.map(handle => handle.length));
 
       class Component extends DCLogic {
         state = { idx: 0, fading: false, email: "", error: "" };
@@ -217,7 +210,7 @@
             isHandleFirst: t === "handle-first",
             isTypeOnly: t === "type-only",
             handleName: HANDLES[this.state.idx],
-            fadeStyle: { opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
+            handleStyle: { width: `${HANDLE_WIDTH}ch`, opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
             email: this.state.email,
             error: this.state.error,
             invalid: !!this.state.error,

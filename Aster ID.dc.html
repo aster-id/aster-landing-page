@@ -55,18 +55,26 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Fira Code";
+  src: url("./uploads/fira-code-var.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ── Design tokens --- */
 :root {
   --font-serif: "Playfair Display", "EB Garamond", Garamond, "Times New Roman", serif;
   --font-sans: "Atkinson Hyperlegible", "Helvetica Neue", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  --violet: #49357d; /* page background, button text */
-  --violet-deep: #422e72; /* gradient end */
+  --violet: #4D3588; /* page background, button text */
+  --violet-deep: #4D3588; /* gradient end */
   --violet-ink: #38265f; /* button hover text */
   --paper: #f7f5f2; /* primary text, button bg */
   --header-paper: #f7f5f1;
   --footer-ink: #241a38;
+  --handle-gold: #f0c24c;
   --paper-rgb: 247, 245, 242;
   --lavender: #d7d4f7; /* accents, hover, focus */
   --lavender-rgb: 198, 182, 236;
@@ -165,6 +173,14 @@ a:hover {
   padding: 64px var(--page-gutter) 34px;
   background: linear-gradient(180deg, var(--violet) 0%, var(--violet) 58%, var(--violet-deep) 100%);
 }
+.hero-layout {
+  width: 100%;
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 80px);
+}
 .hero {
   width: 100%;
   max-width: 560px;
@@ -184,14 +200,6 @@ a:hover {
   font-family: var(--font-serif);
   font-weight: 400;
 }
-.handle-line {
-  font-family: var(--font-serif);
-}
-.handle-name {
-  color: var(--lavender);
-  border-bottom: 1px solid rgba(var(--lavender-rgb), 0.5);
-  padding-bottom: 2px;
-}
 .intro {
   max-width: 470px;
   font-size: 15px;
@@ -209,29 +217,12 @@ a:hover {
   text-wrap: pretty;
   animation: rise 900ms var(--ease-rise) 80ms both;
 }
-.handle-line--balanced {
-  margin: 40px 0 0;
-  font-size: 34px;
-  line-height: 1.2;
-  letter-spacing: 0.005em;
-  animation: rise 900ms var(--ease-rise) 160ms both;
-}
 .intro--balanced {
   margin: 32px 0 0;
   animation: rise 900ms var(--ease-rise) 240ms both;
 }
 
 /* ── Hero: handle-first variant --- */
-.handle-line--handle {
-  margin: 44px 0 0;
-  font-size: 66px;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  animation: rise 900ms var(--ease-rise) 80ms both;
-}
-.handle-line--handle .handle-name {
-  padding-bottom: 4px;
-}
 .headline--handle {
   margin: 34px 0 0;
   font-size: 23px;
@@ -269,16 +260,44 @@ a:hover {
   text-wrap: pretty;
   animation: rise 900ms var(--ease-rise) 140ms both;
 }
-.handle-line--type {
-  margin: 38px 0 0;
-  font-style: italic;
-  font-size: 32px;
-  line-height: 1.2;
-  animation: rise 900ms var(--ease-rise) 220ms both;
-}
 .intro--type {
   margin: 32px 0 0;
   animation: rise 900ms var(--ease-rise) 300ms both;
+}
+
+/* ── ID card --- */
+.id-card {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid rgba(247, 245, 241, 0.4);
+  background: var(--footer-ink);
+}
+.handle-line {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  color: var(--handle-gold);
+  font-family: "Fira Code", ui-monospace, monospace;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 450;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.handle-name {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .handle-line {
+    font-size: clamp(16px, 5vw, 24px);
+  }
 }
 
 /* ── Signup form --- */
@@ -460,70 +479,62 @@ a:hover {
         </header>
 
         <main class="middle">
-          <div class="hero">
-            <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
-              <div class="stack">
-                <h1 class="headline headline--balanced">A home for researchers on the open web.</h1>
-                <p class="handle-line handle-line--balanced">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>.aster.id</span>
-                </p>
-                <p class="intro intro--balanced">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-              </div>
-            </sc-if>
-
-            <sc-if value="{{ isHandleFirst }}">
-              <div class="stack">
-                <p class="handle-line handle-line--handle">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>.aster.id</span>
-                </p>
-                <h1 class="headline headline--handle">A home for researchers on the open web.</h1>
-                <p class="intro intro--handle">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-              </div>
-            </sc-if>
-
-            <sc-if value="{{ isTypeOnly }}">
-              <div class="stack">
-                <p class="eyebrow">Aster ID</p>
-                <div class="rule"></div>
-                <h1 class="headline headline--type">A home for researchers on the open web.</h1>
-                <p class="handle-line handle-line--type">
-                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                  ><span>.aster.id</span>
-                </p>
-                <p class="intro intro--type">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-              </div>
-            </sc-if>
-
-            <div class="signup">
-              <form class="signup-form" action="https://leaflet.pub/api/auth/email-login" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
-                <input type="hidden" name="action" value="%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D" />
-                <input type="hidden" name="redirect" value="https://aster.leaflet.pub" />
-                <div class="signup-row">
-                  <label for="aster-email" class="visually-hidden">Email address</label>
-                  <input
-                    class="input"
-                    id="aster-email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="you@example.com"
-                    value="{{ email }}"
-                    onChange="{{ onEmailChange }}"
-                    aria-invalid="{{ invalid }}"
-                    aria-describedby="aster-email-error"
-                  />
-                  <button class="button" type="submit">Sign up for updates</button>
+          <div class="hero-layout">
+            <div class="hero">
+              <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
+                <div class="stack">
+                  <h1 class="headline headline--balanced">A home for researchers on the open web.</h1>
+                  <p class="intro intro--balanced">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
                 </div>
-                <p class="error" id="aster-email-error" role="status">{{ error }}</p>
-              </form>
-            </div>
+              </sc-if>
 
-            <p class="tagline">Launching autumn 2026.</p>
+              <sc-if value="{{ isHandleFirst }}">
+                <div class="stack">
+                  <h1 class="headline headline--handle">A home for researchers on the open web.</h1>
+                  <p class="intro intro--handle">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isTypeOnly }}">
+                <div class="stack">
+                  <p class="eyebrow">Aster ID</p>
+                  <div class="rule"></div>
+                  <h1 class="headline headline--type">A home for researchers on the open web.</h1>
+                  <p class="intro intro--type">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
+                </div>
+              </sc-if>
+
+              <div class="signup">
+                <form class="signup-form" action="https://leaflet.pub/api/auth/email-login" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
+                  <input type="hidden" name="action" value="%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D" />
+                  <input type="hidden" name="redirect" value="https://aster.leaflet.pub" />
+                  <div class="signup-row">
+                    <label for="aster-email" class="visually-hidden">Email address</label>
+                    <input
+                      class="input"
+                      id="aster-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                      value="{{ email }}"
+                      onChange="{{ onEmailChange }}"
+                      aria-invalid="{{ invalid }}"
+                      aria-describedby="aster-email-error"
+                    />
+                    <button class="button" type="submit">Sign up for updates</button>
+                  </div>
+                  <p class="error" id="aster-email-error" role="status">{{ error }}</p>
+                </form>
+              </div>
+
+              <p class="tagline">Launching autumn 2026.</p>
+            </div>
+            <aside class="id-card" aria-label="Example Aster ID">
+              <p class="handle-line" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}">
+                <span class="handle-name" style="{{ handleStyle }}">{{ handleName }}</span><span>.aster.id</span>
+              </p>
+            </aside>
           </div>
         </main>
 
@@ -594,6 +605,7 @@ a:hover {
     >
       /* ───── handles come from content.md; signup submits to Leaflet via the form ───── */
       const HANDLES = ["@your-name","@your-lab","@your-org"];
+      const HANDLE_WIDTH = Math.max(0, ...HANDLES.map(handle => handle.length));
 
       class Component extends DCLogic {
         state = { idx: 0, fading: false, email: "", error: "" };
@@ -639,7 +651,7 @@ a:hover {
             isHandleFirst: t === "handle-first",
             isTypeOnly: t === "type-only",
             handleName: HANDLES[this.state.idx],
-            fadeStyle: { opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
+            handleStyle: { width: `${HANDLE_WIDTH}ch`, opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
             email: this.state.email,
             error: this.state.error,
             invalid: !!this.state.error,
