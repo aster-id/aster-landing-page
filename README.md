@@ -31,7 +31,7 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 
 ### Hero treatments
 
-Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`balanced` \| `handle-first` \| `type-only`; default set by `hero_treatment` in `content.md`). Props also cover `cycleHandles` (animated handle swap — list in `content.md` `handles`) and `showWatermark`.
+Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`balanced` \| `handle-first` \| `type-only`; default set by `hero_treatment` in `content.md`). The `cycleHandles` prop controls the animated handle swap (list in `content.md` `handles`).
 
 ## Deploy checklist — before launch
 

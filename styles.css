@@ -39,12 +39,15 @@
   --violet-deep: #422e72; /* gradient end */
   --violet-ink: #38265f; /* button hover text */
   --paper: #f7f5f2; /* primary text, button bg */
+  --header-paper: #f7f5f1;
+  --footer-ink: #241a38;
   --paper-rgb: 247, 245, 242;
   --lavender: #d7d4f7; /* accents, hover, focus */
   --lavender-rgb: 198, 182, 236;
   --error: #e9b4b4;
 
   --ease-rise: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --page-gutter: clamp(32px, 4vw, 64px);
 }
 
 /* ── Base --- */
@@ -72,16 +75,6 @@ a:hover {
 }
 
 /* ── Keyframes --- */
-@keyframes watermarkIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 0.045;
-    transform: none;
-  }
-}
 @keyframes rise {
   from {
     opacity: 0;
@@ -94,70 +87,73 @@ a:hover {
 }
 /* ── Layout --- */
 .page {
-  position: relative;
-  overflow: hidden;
   box-sizing: border-box;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-  padding: 64px 24px 34px;
-  background: linear-gradient(180deg, var(--violet) 0%, var(--violet) 58%, var(--violet-deep) 100%);
   color: var(--paper);
   font-family: var(--font-sans);
 }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px var(--page-gutter);
+  background: var(--header-paper);
+  color: var(--violet);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+}
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1;
+}
 .about-link {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  z-index: 3;
   padding: 10px 12px;
-  color: rgba(var(--paper-rgb), 0.75);
+  color: inherit;
   font-size: 13px;
   letter-spacing: 0.05em;
   transition: color 220ms ease;
 }
-.watermark {
-  position: absolute;
-  left: -22vmin;
-  bottom: -26vmin;
-  width: 78vmin;
-  height: auto;
-  opacity: 0.045;
-  pointer-events: none;
-  animation: watermarkIn 2200ms ease-out both;
+.about-link:hover {
+  color: var(--violet-ink);
 }
-.spacer {
-  flex: 0 0 auto;
+.site-header :focus-visible {
+  outline-color: var(--violet);
+}
+.middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px var(--page-gutter) 34px;
+  background: linear-gradient(180deg, var(--violet) 0%, var(--violet) 58%, var(--violet-deep) 100%);
 }
 .hero {
-  position: relative;
-  z-index: 1;
   width: 100%;
   max-width: 560px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 .stack {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* ── Hero: shared --- */
-.lockup {
-  width: 186px;
-  height: auto;
-}
-.mark {
-  width: 40px;
-  height: 40px;
-  opacity: 0.9;
-}
 .headline {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -352,24 +348,18 @@ a:hover {
 
 /* ── Footer --- */
 .footer {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 640px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 18px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px var(--page-gutter);
+  background: var(--footer-ink);
   animation: rise 900ms var(--ease-rise) 480ms both;
 }
-.footer-mark {
-  width: 26px;
-  height: 26px;
-  opacity: 0.6;
-}
 .footer-note {
+  flex: 1 1 auto;
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-size: 12px;
   line-height: 1.5;
   color: rgba(var(--paper-rgb), 0.42);
@@ -378,15 +368,13 @@ a:hover {
   color: var(--paper);
 }
 
-/* ── Social corner --- */
+/* ── Social links --- */
 .social {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  z-index: 2;
   display: flex;
   align-items: center;
   gap: 6px;
+  flex: 0 0 auto;
+  margin-left: auto;
   animation: rise 900ms var(--ease-rise) 560ms both;
 }
 .social-link {
@@ -413,6 +401,15 @@ a:hover {
   width: 20px;
   height: 20px;
   border-radius: 5px;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+  .footer-note {
+    flex: 1 0 100%;
+  }
 }
 
 /* ── Reduced motion --- */

@@ -29,139 +29,127 @@
       </helmet>
       <!-- Copy & config: content.md · styles: styles.css · structure: template.html · rebuild: npm run build -->
       <div class="page">
-        <a class="about-link" href="%%ABOUT_URL|attr%%" target="_blank" rel="noopener">%%ABOUT_LABEL%%</a>
-        <sc-if value="{{ showWatermark }}" hint-placeholder-val="{{ true }}">
-          <img
-            src="uploads/aster-mark-white.svg"
-            alt=""
-            aria-hidden="true"
-            width="193"
-            height="193"
-            loading="lazy"
-            decoding="async"
-            class="watermark"
-          />
-        </sc-if>
-
-        <div class="spacer"></div>
-
-        <main class="hero">
-          <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
-            <div class="stack">
-              <img class="lockup" src="uploads/aster-lockup.svg" alt="Aster ID" width="1268" height="318" decoding="async" />
-              <h1 class="headline headline--balanced">%%HEADLINE%%</h1>
-              <p class="handle-line handle-line--balanced">
-                <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                  ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                ><span>%%HANDLE_SUFFIX%%</span>
-              </p>
-              <p class="intro intro--balanced">%%BODY%%</p>
-            </div>
-          </sc-if>
-
-          <sc-if value="{{ isHandleFirst }}">
-            <div class="stack">
-              <img class="mark" src="uploads/aster-mark-white.svg" alt="Aster ID" width="193" height="193" decoding="async" />
-              <p class="handle-line handle-line--handle">
-                <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                  ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                ><span>%%HANDLE_SUFFIX%%</span>
-              </p>
-              <h1 class="headline headline--handle">%%HEADLINE%%</h1>
-              <p class="intro intro--handle">%%BODY%%</p>
-            </div>
-          </sc-if>
-
-          <sc-if value="{{ isTypeOnly }}">
-            <div class="stack">
-              <p class="eyebrow">%%EYEBROW%%</p>
-              <div class="rule"></div>
-              <h1 class="headline headline--type">%%HEADLINE%%</h1>
-              <p class="handle-line handle-line--type">
-                <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
-                  ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
-                ><span>%%HANDLE_SUFFIX%%</span>
-              </p>
-              <p class="intro intro--type">%%BODY%%</p>
-            </div>
-          </sc-if>
-
-          <div class="signup">
-            <form class="signup-form" action="%%LEAFLET_SUBSCRIBE_URL|attr%%" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
-              <input type="hidden" name="action" value="%%LEAFLET_SUBSCRIBE_ACTION|attr%%" />
-              <input type="hidden" name="redirect" value="%%LEAFLET_REDIRECT_URL|attr%%" />
-              <div class="signup-row">
-                <label for="aster-email" class="visually-hidden">%%EMAIL_LABEL%%</label>
-                <input
-                  class="input"
-                  id="aster-email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  placeholder="%%EMAIL_PLACEHOLDER|attr%%"
-                  value="{{ email }}"
-                  onChange="{{ onEmailChange }}"
-                  aria-invalid="{{ invalid }}"
-                  aria-describedby="aster-email-error"
-                />
-                <button class="button" type="submit">%%SUBMIT_BUTTON%%</button>
-              </div>
-              <p class="error" id="aster-email-error" role="status">{{ error }}</p>
-            </form>
+        <header class="site-header">
+          <div class="brand">
+            <img class="brand-mark" src="uploads/aster-mark.svg" alt="" aria-hidden="true" width="512" height="512" />
+            <span class="brand-name">Aster ID</span>
           </div>
+          <a class="about-link" href="%%ABOUT_URL|attr%%" target="_blank" rel="noopener">%%ABOUT_LABEL%%</a>
+        </header>
 
-          <p class="tagline">%%TAGLINE%%</p>
+        <main class="middle">
+          <div class="hero">
+            <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
+              <div class="stack">
+                <h1 class="headline headline--balanced">%%HEADLINE%%</h1>
+                <p class="handle-line handle-line--balanced">
+                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
+                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
+                  ><span>%%HANDLE_SUFFIX%%</span>
+                </p>
+                <p class="intro intro--balanced">%%BODY%%</p>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isHandleFirst }}">
+              <div class="stack">
+                <p class="handle-line handle-line--handle">
+                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
+                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
+                  ><span>%%HANDLE_SUFFIX%%</span>
+                </p>
+                <h1 class="headline headline--handle">%%HEADLINE%%</h1>
+                <p class="intro intro--handle">%%BODY%%</p>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isTypeOnly }}">
+              <div class="stack">
+                <p class="eyebrow">%%EYEBROW%%</p>
+                <div class="rule"></div>
+                <h1 class="headline headline--type">%%HEADLINE%%</h1>
+                <p class="handle-line handle-line--type">
+                  <span class="handle-name" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"
+                    ><span style="{{ fadeStyle }}">{{ handleName }}</span></span
+                  ><span>%%HANDLE_SUFFIX%%</span>
+                </p>
+                <p class="intro intro--type">%%BODY%%</p>
+              </div>
+            </sc-if>
+
+            <div class="signup">
+              <form class="signup-form" action="%%LEAFLET_SUBSCRIBE_URL|attr%%" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
+                <input type="hidden" name="action" value="%%LEAFLET_SUBSCRIBE_ACTION|attr%%" />
+                <input type="hidden" name="redirect" value="%%LEAFLET_REDIRECT_URL|attr%%" />
+                <div class="signup-row">
+                  <label for="aster-email" class="visually-hidden">%%EMAIL_LABEL%%</label>
+                  <input
+                    class="input"
+                    id="aster-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="%%EMAIL_PLACEHOLDER|attr%%"
+                    value="{{ email }}"
+                    onChange="{{ onEmailChange }}"
+                    aria-invalid="{{ invalid }}"
+                    aria-describedby="aster-email-error"
+                  />
+                  <button class="button" type="submit">%%SUBMIT_BUTTON%%</button>
+                </div>
+                <p class="error" id="aster-email-error" role="status">{{ error }}</p>
+              </form>
+            </div>
+
+            <p class="tagline">%%TAGLINE%%</p>
+          </div>
         </main>
 
         <footer class="footer">
-          <sc-if value="{{ isTypeOnly }}">
-            <img class="footer-mark" src="uploads/aster-mark-white.svg" alt="Aster ID" width="193" height="193" decoding="async" />
-          </sc-if>
           <p class="footer-note">
             An <a class="footer-link" href="%%FOOTER_LINK_1_HREF|attr%%">%%FOOTER_LINK_1_LABEL%%</a> project, fiscally hosted by the
             <a class="footer-link" href="%%FOOTER_LINK_2_HREF|attr%%">%%FOOTER_LINK_2_LABEL%%</a>.
           </p>
-        </footer>
-
-        <div class="social">
-          <a class="social-link social-link--image" href="%%BLOG_URL|attr%%" target="_blank" rel="noopener" aria-label="Aster ID blog" title="Blog">
-            <img src="uploads/leaflet-favicon.png" alt="" width="96" height="96" />
-          </a>
-          <a class="social-link" href="%%BLUESKY_URL|attr%%" target="_blank" rel="noopener" aria-label="Aster ID on Bluesky" title="Bluesky">
-            <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false">
-              <path
-                d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"
-              ></path>
-            </svg>
-          </a>
-          <a
-            class="social-link social-link--image"
-            href="%%ROOMY_URL|attr%%"
-            target="_blank"
-            rel="noopener"
-            aria-label="Aster ID on Roomy"
-            title="Roomy"
-          >
-            <img src="uploads/roomy-favicon.png" alt="" width="64" height="64" />
-          </a>
-          <a class="social-link" href="mailto:%%CONTACT_EMAIL|attr%%" aria-label="Email Aster ID" title="Contact">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              focusable="false"
+          <div class="social">
+            <a class="social-link social-link--image" href="%%BLOG_URL|attr%%" target="_blank" rel="noopener" aria-label="Aster ID blog" title="Blog">
+              <img src="uploads/leaflet-favicon.png" alt="" width="96" height="96" />
+            </a>
+            <a class="social-link" href="%%BLUESKY_URL|attr%%" target="_blank" rel="noopener" aria-label="Aster ID on Bluesky" title="Bluesky">
+              <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false">
+                <path
+                  d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"
+                ></path>
+              </svg>
+            </a>
+            <a
+              class="social-link social-link--image"
+              href="%%ROOMY_URL|attr%%"
+              target="_blank"
+              rel="noopener"
+              aria-label="Aster ID on Roomy"
+              title="Roomy"
             >
-              <rect x="2.5" y="5" width="19" height="14" rx="2"></rect>
-              <path d="M3 6.5 12 13l9-6.5"></path>
-            </svg>
-          </a>
-        </div>
+              <img src="uploads/roomy-favicon.png" alt="" width="64" height="64" />
+            </a>
+            <a class="social-link" href="mailto:%%CONTACT_EMAIL|attr%%" aria-label="Email Aster ID" title="Contact">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="2.5" y="5" width="19" height="14" rx="2"></rect>
+                <path d="M3 6.5 12 13l9-6.5"></path>
+              </svg>
+            </a>
+          </div>
+        </footer>
       </div>
     </x-dc>
     <script type="application/ld+json">
@@ -180,7 +168,7 @@
     <script
       type="text/x-dc"
       data-dc-script
-      data-props='{"heroTreatment":{"editor":"enum","options":["balanced","handle-first","type-only"],"default":"%%HERO_TREATMENT%%","tsType":"string","section":"Hero"},"cycleHandles":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"},"showWatermark":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"}}'
+      data-props='{"heroTreatment":{"editor":"enum","options":["balanced","handle-first","type-only"],"default":"%%HERO_TREATMENT%%","tsType":"string","section":"Hero"},"cycleHandles":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"}}'
     >
       /* ───── handles come from content.md; signup submits to Leaflet via the form ───── */
       const HANDLES = %%HANDLES|json%%;
@@ -228,7 +216,6 @@
             isBalanced: t === "balanced",
             isHandleFirst: t === "handle-first",
             isTypeOnly: t === "type-only",
-            showWatermark: (this.props.showWatermark ?? true) && t !== "type-only",
             handleName: HANDLES[this.state.idx],
             fadeStyle: { opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
             email: this.state.email,
