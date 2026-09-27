@@ -33,6 +33,26 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 
 Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`balanced` \| `handle-first` \| `type-only`; default set by `hero_treatment` in `content.md`). The `cycleHandles` prop controls the animated handle swap (list in `content.md` `handles`).
 
+### Typography
+
+`styles.css` defines font family, size, weight, line-height, and letter-spacing primitives, then composes them into `--type-*` role tokens. The current page uses:
+
+| Content | Role |
+|---------|------|
+| Hero headline (`balanced`, `type-only`) | `display` (fluid 40–72px; 32–40px at ≤400px to keep the closing phrase together) |
+| Hero headline (`handle-first`) | `heading-1` (fluid 30–36px) |
+| Header “Aster ID” | `title` (fluid 26–32px) |
+| Hero paragraph | `lead` |
+| Type-only eyebrow | `eyebrow` |
+| About link, signup button | `label-default` |
+| Email input, validation error | `body-small` |
+| Launch note, footer sentence | `metadata` |
+| Animated handle | `code` family/weight/tracking with `heading-1` sizing, constrained to fit the card |
+
+The page defaults to `body-default`; `heading-2` (fluid 24–28px) is available for future section headings. Fluid role sizes top out at the selected desktop primitives; text color remains separate from typography roles.
+
+The wide hero uses a roughly 55/45 text/card split. The headline gets the text column; the lead is capped at 60ch and the signup at 480px, sharing its left edge rather than its full width.
+
 ## Deploy checklist — before launch
 
 Set these in `content.md`, then rebuild:
