@@ -35,8 +35,7 @@ hero_treatment: balanced
 handle_suffix: .aster.id
 handles: "@your-name, @your-lab, @your-org"
 eyebrow: Aster ID
-headline_lead: Your home for research
-headline_tail: on the open web.
+headline: Your home for research on the open web.
 body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers."
 
 # Signup form — subscribes via Leaflet (https://leaflet.pub), a real GET
@@ -83,7 +82,7 @@ Everything the build reads lives in the `---` block above. Notes:
 | `handle_suffix` | Text after the animated handle, e.g. `.aster.id` |
 | `handles` | Comma-separated list that cycles in the hero (`your-name` → `your-name.aster.id`) |
 | `eyebrow` | Small uppercase label — only shown in the `type-only` treatment |
-| `headline_lead` / `headline_tail` | The `<h1>` in all three treatments; the tail stays together when it fits. |
+| `headline` | The `<h1>` in all three treatments. |
 | `body` | Supporting paragraph (same across all three treatments) |
 | `leaflet_subscribe_url` | The signup `<form>`'s `action` (Leaflet's email-login endpoint) |
 | `leaflet_subscribe_action` | Hidden `action` field — encodes the Leaflet publication being subscribed to. Opaque; don't hand-edit, only replace wholesale if Leaflet reissues it |

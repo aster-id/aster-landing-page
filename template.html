@@ -31,8 +31,7 @@
       <div class="page">
         <header class="site-header">
           <div class="brand">
-            <img class="brand-mark" src="uploads/aster-mark.svg" alt="" aria-hidden="true" width="512" height="512" />
-            <span class="brand-name">Aster ID</span>
+            <img class="brand-lockup" src="uploads/aster-lockup.svg" alt="Aster ID" width="800" height="205" />
           </div>
           <a class="about-link" href="%%ABOUT_URL|attr%%" target="_blank" rel="noopener">%%ABOUT_LABEL%%</a>
         </header>
@@ -42,14 +41,14 @@
             <div class="hero">
               <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
                 <div class="stack">
-                  <h1 class="headline headline--balanced"><span>%%HEADLINE_LEAD%%</span> <span class="headline-tail">%%HEADLINE_TAIL%%</span></h1>
+                  <h1 class="headline headline--balanced">%%HEADLINE%%</h1>
                   <p class="intro intro--balanced">%%BODY%%</p>
                 </div>
               </sc-if>
 
               <sc-if value="{{ isHandleFirst }}">
                 <div class="stack">
-                  <h1 class="headline headline--handle"><span>%%HEADLINE_LEAD%%</span> <span class="headline-tail">%%HEADLINE_TAIL%%</span></h1>
+                  <h1 class="headline headline--handle">%%HEADLINE%%</h1>
                   <p class="intro intro--handle">%%BODY%%</p>
                 </div>
               </sc-if>
@@ -58,7 +57,7 @@
                 <div class="stack">
                   <p class="eyebrow">%%EYEBROW%%</p>
                   <div class="rule"></div>
-                  <h1 class="headline headline--type"><span>%%HEADLINE_LEAD%%</span> <span class="headline-tail">%%HEADLINE_TAIL%%</span></h1>
+                  <h1 class="headline headline--type">%%HEADLINE%%</h1>
                   <p class="intro intro--type">%%BODY%%</p>
                 </div>
               </sc-if>

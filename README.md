@@ -10,7 +10,7 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 | `template.html` | HTML structure. `%%PLACEHOLDER%%` markers are filled from `content.md`. `{{ }}` are runtime bindings. |
 | `styles.css` | **Edit here.** All styling (design tokens, layout, components, animations). Inlined at build time. |
 | `Aster ID.dc.html` | **Generated — do not edit.** The deployable single-file page. |
-| `aster-lockup.png` | Wordmark lockup (1268×318). |
+| `uploads/aster-lockup.svg` | Header wordmark lockup. |
 | `aster-mark.png` | Icon mark (193×193). Also used as favicon / apple-touch-icon. |
 | `uploads/` | Durable asset staging. |
 
@@ -39,9 +39,9 @@ Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`ba
 
 | Content | Role |
 |---------|------|
-| Hero headline (`balanced`, `type-only`) | `display` (fluid 40–72px; 32–40px at ≤400px to keep the closing phrase together) |
+| Hero headline (`balanced`, `type-only`) | `display` (fluid 40–96px) |
 | Hero headline (`handle-first`) | `heading-1` (fluid 30–36px) |
-| Header “Aster ID” | `title` (fluid 26–32px) |
+| Header “Aster ID” | SVG lockup |
 | Hero paragraph | `lead` |
 | Type-only eyebrow | `eyebrow` |
 | About link, signup button | `label-default` |
@@ -50,8 +50,6 @@ Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`ba
 | Animated handle | `code` family/weight/tracking with `heading-1` sizing, constrained to fit the card |
 
 The page defaults to `body-default`; `heading-2` (fluid 24–28px) is available for future section headings. Fluid role sizes top out at the selected desktop primitives; text color remains separate from typography roles.
-
-The wide hero uses a roughly 55/45 text/card split. The headline gets the text column; the lead is capped at 60ch and the signup at 480px, sharing its left edge rather than its full width.
 
 ## Deploy checklist — before launch
 

@@ -109,12 +109,12 @@
   --letter-spacing-wide: 0.1em;
 
   /* Interpolate from a 320px viewport to the desktop maximum at 1440px. */
-  --type-display-size: clamp(2.5rem, calc(1.929rem + 2.857vw), var(--font-size-4xl));
+  --type-display-size: clamp(2.5rem, calc(1.5rem + 5vw), 6rem);
   --type-title-size: clamp(1.625rem, calc(1.518rem + 0.536vw), var(--font-size-2xl));
   --type-heading-1-size: clamp(1.875rem, calc(1.768rem + 0.536vw), var(--font-size-3xl));
   --type-heading-2-size: clamp(1.5rem, calc(1.429rem + 0.357vw), var(--font-size-xl));
 
-  --type-display: var(--font-weight-medium) var(--type-display-size) / var(--line-height-extra-tight) var(--font-family-serif);
+  --type-display: var(--font-weight-normal) var(--type-display-size) / var(--line-height-extra-tight) var(--font-family-serif);
   --type-display-tracking: var(--letter-spacing-extra-tight);
   --type-title: var(--font-weight-normal) var(--type-title-size) / var(--line-height-tight) var(--font-family-serif);
   --type-title-tracking: var(--letter-spacing-tight);
@@ -122,7 +122,7 @@
   --type-heading-1-tracking: var(--letter-spacing-tight);
   --type-heading-2: var(--font-weight-normal) var(--type-heading-2-size) / var(--line-height-tight) var(--font-family-serif);
   --type-heading-2-tracking: var(--letter-spacing-normal);
-  --type-lead: var(--font-weight-normal) var(--font-size-md) / var(--line-height-snug) var(--font-family-sans-serif);
+  --type-lead: var(--font-weight-normal) var(--font-size-md) / var(--line-height-relaxed) var(--font-family-sans-serif);
   --type-lead-tracking: var(--letter-spacing-normal);
   --type-body-default: var(--font-weight-normal) var(--font-size-md) / var(--line-height-normal) var(--font-family-sans-serif);
   --type-body-default-tracking: var(--letter-spacing-normal);
@@ -137,20 +137,23 @@
   --type-code: var(--font-weight-normal) var(--font-size-sm) / var(--line-height-snug) var(--font-family-mono);
   --type-code-tracking: var(--letter-spacing-normal);
 
-  --violet: #3B2A7E; /* page background, button text */
-  --violet-deep: #3B2A7E; /* gradient end */
+  --violet: #3b2a7e; /* page background, button text */
+  --violet-deep: #3b2a7e; /* gradient end */
   --violet-ink: #38265f; /* button hover text */
   --paper: #f7f5f2; /* primary text, button bg */
   --header-paper: #f7f5f1;
-  --footer-ink: #241A38;
-  --handle-gold: #F0B106;
+  --footer-ink: #241a38;
+  --handle-gold: #f0b106;
   --paper-rgb: 247, 245, 242;
   --lavender: #d7d4f7; /* accents, hover, focus */
   --lavender-rgb: 198, 182, 236;
   --error: #e9b4b4;
 
   --ease-rise: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --page-gutter: clamp(40px, 7vw, 112px);
+  --page-gutter: clamp(1.25rem, 4.8vw, 5rem);
+  --shell-outer-width: 90rem;
+  --shell-width: calc(var(--shell-outer-width) - var(--page-gutter) - var(--page-gutter));
+  --shell-gutter: max(var(--page-gutter), calc((100vw - var(--shell-outer-width)) / 2 + var(--page-gutter)));
 }
 
 /* ── Base --- */
@@ -203,23 +206,19 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px var(--page-gutter);
+  padding: 20px var(--shell-gutter);
   background: var(--header-paper);
   color: var(--violet);
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
-.brand-mark {
-  width: 30px;
-  height: 30px;
-  flex: 0 0 auto;
-}
-.brand-name {
-  font: var(--type-title);
-  letter-spacing: var(--type-title-tracking);
+.brand-lockup {
+  display: block;
+  width: auto;
+  height: clamp(36px, 2.6vw, 40px);
+  max-width: 100%;
 }
 .about-link {
   padding: 10px 12px;
@@ -238,13 +237,13 @@ a:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 64px var(--page-gutter) 34px;
+  justify-content: flex-start;
+  padding: 64px var(--shell-gutter) 72px;
   background: linear-gradient(180deg, var(--violet) 0%, var(--violet) 58%, var(--violet-deep) 100%);
 }
 .hero-layout {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--shell-width);
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   align-items: center;
@@ -266,12 +265,10 @@ a:hover {
 
 /* ── Hero: shared --- */
 .headline {
-  width: 100%;
+  width: min(100%, 13.5ch);
   font: var(--type-display);
   letter-spacing: var(--type-display-tracking);
-}
-.headline-tail {
-  white-space: nowrap;
+  text-wrap: balance;
 }
 .intro {
   width: min(100%, 60ch);
@@ -284,7 +281,6 @@ a:hover {
 /* ── Hero: balanced variant --- */
 .headline--balanced {
   margin: 46px 0 0;
-  text-wrap: pretty;
   animation: rise 900ms var(--ease-rise) 80ms both;
 }
 .intro--balanced {
@@ -323,7 +319,6 @@ a:hover {
 }
 .headline--type {
   margin: 40px 0 0;
-  text-wrap: pretty;
   animation: rise 900ms var(--ease-rise) 140ms both;
 }
 .intro--type {
@@ -362,12 +357,6 @@ a:hover {
   .id-card {
     width: min(100%, 560px);
     box-sizing: border-box;
-  }
-}
-
-@media (max-width: 400px) {
-  .headline:not(.headline--handle) {
-    font-size: clamp(2rem, 10vw, 2.5rem);
   }
 }
 
@@ -464,7 +453,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px var(--page-gutter);
+  padding: 18px var(--shell-gutter);
   background: var(--footer-ink);
   animation: rise 900ms var(--ease-rise) 480ms both;
 }
@@ -524,6 +513,24 @@ a:hover {
   }
 }
 
+@media (max-width: 42rem) {
+  .middle {
+    padding-block: clamp(2.5rem, 7vw, 4rem);
+  }
+  .headline--balanced {
+    margin-top: 24px;
+  }
+  .intro--balanced {
+    margin-top: 24px;
+  }
+  .signup {
+    margin-top: 32px;
+  }
+  .tagline {
+    margin-top: 16px;
+  }
+}
+
 /* ── Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -539,8 +546,7 @@ a:hover {
       <div class="page">
         <header class="site-header">
           <div class="brand">
-            <img class="brand-mark" src="uploads/aster-mark.svg" alt="" aria-hidden="true" width="512" height="512" />
-            <span class="brand-name">Aster ID</span>
+            <img class="brand-lockup" src="uploads/aster-lockup.svg" alt="Aster ID" width="800" height="205" />
           </div>
           <a class="about-link" href="https://m4co.notion.site/Aster-3db96ae906558004956efd17bfdf97ae" target="_blank" rel="noopener">About</a>
         </header>
@@ -550,14 +556,14 @@ a:hover {
             <div class="hero">
               <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
                 <div class="stack">
-                  <h1 class="headline headline--balanced"><span>Your home for research</span> <span class="headline-tail">on the open web.</span></h1>
+                  <h1 class="headline headline--balanced">Your home for research on the open web.</h1>
                   <p class="intro intro--balanced">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
                 </div>
               </sc-if>
 
               <sc-if value="{{ isHandleFirst }}">
                 <div class="stack">
-                  <h1 class="headline headline--handle"><span>Your home for research</span> <span class="headline-tail">on the open web.</span></h1>
+                  <h1 class="headline headline--handle">Your home for research on the open web.</h1>
                   <p class="intro intro--handle">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
                 </div>
               </sc-if>
@@ -566,7 +572,7 @@ a:hover {
                 <div class="stack">
                   <p class="eyebrow">Aster ID</p>
                   <div class="rule"></div>
-                  <h1 class="headline headline--type"><span>Your home for research</span> <span class="headline-tail">on the open web.</span></h1>
+                  <h1 class="headline headline--type">Your home for research on the open web.</h1>
                   <p class="intro intro--type">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
                 </div>
               </sc-if>
