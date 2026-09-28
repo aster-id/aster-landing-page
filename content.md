@@ -35,7 +35,7 @@ hero_treatment: balanced
 handle_suffix: .aster.id
 handles: "@your-name, @your-lab, @your-org"
 eyebrow: Aster ID
-headline_lead: A home for researchers
+headline_lead: Your home for research
 headline_tail: on the open web.
 body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers."
 
@@ -94,5 +94,4 @@ Everything the build reads lives in the `---` block above. Notes:
 | `tagline` | Line under the form (`Launching autumn 2026.`) |
 | `footer_link_1_*` / `footer_link_2_*` | Label + href for the two inline links in the footer's fine-print sentence |
 
-Structural brand references (image `alt`, `aria-label`s like "Aster ID on Bluesky")
-live in `template.html`, not here.
+Structural brand references (image `alt`, `aria-label`s like "Aster ID on Bluesky") live in `template.html`, not here.

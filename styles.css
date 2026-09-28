@@ -111,13 +111,13 @@
   --type-code: var(--font-weight-normal) var(--font-size-sm) / var(--line-height-snug) var(--font-family-mono);
   --type-code-tracking: var(--letter-spacing-normal);
 
-  --violet: #4d3588; /* page background, button text */
-  --violet-deep: #4d3588; /* gradient end */
+  --violet: #3B2A7E; /* page background, button text */
+  --violet-deep: #3B2A7E; /* gradient end */
   --violet-ink: #38265f; /* button hover text */
   --paper: #f7f5f2; /* primary text, button bg */
   --header-paper: #f7f5f1;
-  --footer-ink: #241a38;
-  --handle-gold: #f0c24c;
+  --footer-ink: #241A38;
+  --handle-gold: #F0B106;
   --paper-rgb: 247, 245, 242;
   --lavender: #d7d4f7; /* accents, hover, focus */
   --lavender-rgb: 198, 182, 236;
