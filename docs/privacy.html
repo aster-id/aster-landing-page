@@ -3,28 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#4A357E" />
-    <script src="./support.js" defer></script>
-  </head>
-  <body>
-    <x-dc>
-      <helmet>
-        <title>Aster ID — a home for researchers on the open web</title>
-        <meta name="description" content="Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching autumn 2026." />
-        <link rel="canonical" href="https://aster.id/" />
-        <meta property="og:url" content="https://aster.id/" />
-        <meta property="og:title" content="Aster ID" />
-        <meta property="og:description" content="An account and hosting for researchers on the open web — a place to build and own your identity, website, data and connections. Not-for-profit, built by researchers, for researchers." />
-        <meta property="og:image" content="https://aster.id/uploads/og-image.png" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://aster.id/uploads/og-image.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="uploads/favicon-16.png" />
-        <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png" />
-        <style>
-          /* Inlined into the generated HTML by build.mjs at build time */
+    <meta name="theme-color" content="#f7f5f1" />
+    <title>Privacy — Aster ID</title>
+    <meta name="description" content="Aster ID privacy page. Placeholder content for visual design review; not a privacy policy." />
+    <link rel="canonical" href="https://aster.place/privacy.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png" />
+    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png" />
+    <style>
+      /* Inlined into generated HTML by build.mjs at build time */
 
 /* ── Fonts --- */
 @font-face {
@@ -714,11 +700,11 @@ a:hover {
     transition: none !important;
   }
 }
-        </style>
-      </helmet>
-      <!-- Copy & config: content.md · styles: styles.css · structure: template.html · rebuild: npm run build -->
-      <div class="page">
-        <header class="site-header">
+    </style>
+  </head>
+  <body>
+    <div class="page reading-page">
+      <header class="site-header">
           <a class="brand" href="./" aria-label="Aster ID home">
             <img class="brand-lockup" src="uploads/aster-lockup.svg" alt="Aster ID" width="800" height="205" />
           </a>
@@ -727,75 +713,42 @@ a:hover {
             <a class="about-link" href="faq.html">FAQ</a>
           </nav>
         </header>
-
-        <main class="middle">
-          <div class="hero-layout">
-            <div class="hero">
-              <p class="eyebrow hero-eyebrow">A non-profit initiative</p>
-              <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
-                <div class="stack">
-                  <h1 class="headline headline--balanced">Your home for research on the open web.</h1>
-                  <p class="intro intro--balanced">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-                </div>
-              </sc-if>
-
-              <sc-if value="{{ isHandleFirst }}">
-                <div class="stack">
-                  <h1 class="headline headline--handle">Your home for research on the open web.</h1>
-                  <p class="intro intro--handle">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-                </div>
-              </sc-if>
-
-              <sc-if value="{{ isTypeOnly }}">
-                <div class="stack">
-                  <div class="rule"></div>
-                  <h1 class="headline headline--type">Your home for research on the open web.</h1>
-                  <p class="intro intro--type">An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers.</p>
-                </div>
-              </sc-if>
-
-              <div class="signup">
-                <form class="signup-form" action="https://leaflet.pub/api/auth/email-login" method="get" onSubmit="{{ onSubmit }}" novalidate="{{ true }}">
-                  <input type="hidden" name="action" value="%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D" />
-                  <input type="hidden" name="redirect" value="https://aster.leaflet.pub" />
-                  <div class="signup-row">
-                    <label for="aster-email" class="visually-hidden">Email address</label>
-                    <input
-                      class="input"
-                      id="aster-email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      placeholder="you@example.com"
-                      value="{{ email }}"
-                      onChange="{{ onEmailChange }}"
-                      aria-invalid="{{ invalid }}"
-                      aria-describedby="aster-email-error"
-                    />
-                    <button class="button" type="submit">Sign up for updates</button>
-                  </div>
-                  <p class="error" id="aster-email-error" role="status">{{ error }}</p>
-                </form>
-              </div>
-
-              <p class="tagline">Launching autumn 2026.</p>
-            </div>
-            <aside class="id-card" aria-label="Example Aster ID">
-              <p class="card-eyebrow">An Aster ID</p>
-              <p class="handle-line" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}">
-                <span class="handle-name" style="{{ handleStyle }}">{{ handleName }}</span><span>.aster.id</span>
-              </p>
-              <div class="card-divider" aria-hidden="true"></div>
-              <div class="card-placeholder" aria-hidden="true">
-                <span class="card-placeholder-line"></span>
-                <span class="card-placeholder-line"></span>
-                <span class="card-placeholder-line"></span>
-              </div>
-            </aside>
+      <main class="reading-main" id="main">
+        <div class="reading-layout">
+          <div class="reading-topline">
+            <span>Aster ID / 03</span>
+            <span>The details</span>
           </div>
-        </main>
+          <div class="reading-heading">
+            <p class="reading-kicker">The details</p>
+            <h1>Privacy</h1>
+          </div>
+          <div class="reading-columns">
+            <aside class="reading-margin" aria-hidden="true">03 / Aster ID</aside>
+            <div class="reading-content">
+              <p class="reading-lead redacted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum massa ut diam lacinia, id pulvinar ipsum ultrices.</p>
+              <section>
+  <h2>Information we collect</h2>
+  <p class="redacted">Suspendisse potenti. Nulla eget lorem vitae turpis pulvinar tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ornare velit ac metus malesuada, non dictum urna luctus.</p>
+<p class="redacted">Morbi ac orci at dolor molestie imperdiet. Proin vulputate metus in nisl euismod, vitae placerat erat suscipit. Donec quis metus sed purus tristique congue.</p>
+</section>
 
-        <footer class="footer">
+<section>
+  <h2>How information is used</h2>
+  <p class="redacted">Nam ac risus a justo egestas placerat. Pellentesque euismod libero vitae purus volutpat, id posuere orci consectetur. Vivamus luctus ex eu est fermentum, eu rutrum libero feugiat.</p>
+</section>
+
+<section>
+  <h2>Your choices</h2>
+  <p class="redacted">Fusce tempus odio sit amet leo accumsan, vel egestas ligula eleifend. Etiam feugiat ipsum ac lectus dictum, et volutpat urna pellentesque. Praesent facilisis nisl id dui pellentesque fermentum.</p>
+</section>
+
+            </div>
+          </div>
+          <a class="reading-return" href="./">← Back to Aster ID</a>
+        </div>
+      </main>
+      <footer class="footer">
           <p class="footer-note">
             An <a class="footer-link" href="https://atproto.science/">ATScience</a> project, fiscally hosted by the
             <a class="footer-link" href="https://www.modalfoundation.org/">Modal Foundation</a>.
@@ -844,85 +797,6 @@ a:hover {
             </a>
           </div>
         </footer>
-      </div>
-    </x-dc>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Aster ID",
-        "url": "https://aster.id/",
-        "logo": "https://aster.id/uploads/og-image.png",
-        "description": "Account and hosting for researchers on the open web: a place to build and own your identity, website, data and connections. Independent, not-for-profit, and built by researchers, for researchers.",
-        "email": "hello@aster.id",
-        "foundingDate": "2026",
-        "parentOrganization": { "@type": "Organization", "name": "ATScience" }
-      }
-    </script>
-    <script
-      type="text/x-dc"
-      data-dc-script
-      data-props='{"heroTreatment":{"editor":"enum","options":["balanced","handle-first","type-only"],"default":"balanced","tsType":"string","section":"Hero"},"cycleHandles":{"editor":"boolean","default":true,"tsType":"boolean","section":"Hero"}}'
-    >
-      /* ───── handles come from content.md; signup submits to Leaflet via the form ───── */
-      const HANDLES = ["@your-name","@your-lab","@your-org"];
-      const HANDLE_WIDTH = Math.max(0, ...HANDLES.map(handle => handle.length));
-
-      class Component extends DCLogic {
-        state = { idx: 0, fading: false, email: "", error: "" };
-
-        componentDidMount() {
-          this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          this.start();
-        }
-        componentWillUnmount() { this.stop(); }
-
-        start() {
-          const on = this.props.cycleHandles ?? true;
-          if (this.reduced || !on || this.timer) return;
-          // one clock: fade out, swap text while invisible, fade back in
-          this.timer = setInterval(() => {
-            this.setState({ fading: true });
-            this.swapTimer = setTimeout(() => {
-              this.setState(s => ({ idx: (s.idx + 1) % HANDLES.length, fading: false }));
-            }, 620);
-          }, 3200);
-        }
-        stop() {
-          clearInterval(this.timer); this.timer = null;
-          clearTimeout(this.swapTimer);
-          if (this.state.fading) this.setState({ fading: false });
-        }
-
-        submit(e) {
-          const email = (this.state.email || "").trim();
-          if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) {
-            e.preventDefault();
-            this.setState({ error: email ? "That doesn't look like an email address." : "Please enter your email address." });
-            return;
-          }
-          // Valid: let the GET form submit to Leaflet, which sends a confirmation link.
-          this.setState({ error: "" });
-        }
-
-        renderVals() {
-          const t = this.props.heroTreatment ?? "balanced";
-          return {
-            isBalanced: t === "balanced",
-            isHandleFirst: t === "handle-first",
-            isTypeOnly: t === "type-only",
-            handleName: HANDLES[this.state.idx],
-            handleStyle: { width: `${HANDLE_WIDTH}ch`, opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
-            email: this.state.email,
-            error: this.state.error,
-            invalid: !!this.state.error,
-            onEmailChange: e => this.setState({ email: e.target.value, error: "" }),
-            onSubmit: e => this.submit(e),
-            pauseCycle: () => this.stop(),
-            resumeCycle: () => this.start()
-          };
-        }
-      }
-    </script>
+    </div>
   </body>
 </html>

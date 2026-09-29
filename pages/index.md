@@ -2,7 +2,7 @@
 # ─────────────────────────────────────────────────────────────
 # Aster ID landing page — editable copy & config.
 # Edit values below, then run `npm run build` to regenerate
-# `Aster ID.dc.html` from `template.html`.
+# the GitHub Pages site and Durable artifact in `docs/`.
 # Lines starting with `#` are comments. Values are plain text
 # (wrap in quotes if you need leading/trailing spaces, or if the
 # value itself contains a colon — e.g. body: "...open web: a place...").
@@ -10,7 +10,7 @@
 
 # Brand / URLs
 site_name: Aster ID
-domain: https://aster.id/
+domain: https://aster.place/
 contact_email: hello@aster.id
 bluesky_url: https://bsky.app/profile/aster.id
 blog_url: https://aster.leaflet.pub
@@ -90,4 +90,4 @@ Everything the build reads lives in the `---` block above. Notes:
 | `tagline` | Line under the form (`Launching autumn 2026.`) |
 | `footer_link_1_*` / `footer_link_2_*` | Label + href for the two inline links in the footer's fine-print sentence |
 
-Structural brand references (image `alt`, `aria-label`s like "Aster ID on Bluesky") live in `template.html`, not here.
+Structural brand references (image `alt`, `aria-label`s like "Aster ID on Bluesky") live in `src/templates/home.durable.html`, not here.

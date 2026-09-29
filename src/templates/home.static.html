@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#4A357E" />
+    <title>%%PAGE_TITLE%%</title>
+    <meta name="description" content="%%META_DESCRIPTION|attr%%" />
+    <link rel="canonical" href="%%DOMAIN|attr%%" />
+    <meta property="og:url" content="%%DOMAIN|attr%%" />
+    <meta property="og:title" content="%%OG_TITLE|attr%%" />
+    <meta property="og:description" content="%%OG_DESCRIPTION|attr%%" />
+    <meta property="og:image" content="%%DOMAIN|attr%%uploads/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%%DOMAIN|attr%%uploads/og-image.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="uploads/favicon-16.png" />
+    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png" />
+    <style>
+      %%CSS%%
+    </style>
+  </head>
+  <body>
+    <div class="page">%%HEADER|raw%% %%MAIN|raw%% %%FOOTER|raw%%</div>
+    %%STRUCTURED_DATA|raw%%
+    <script>
+      const handles = %%HANDLES|json%%;
+      const handle = document.querySelector(".handle-name");
+      const handleLine = document.querySelector(".handle-line");
+      const form = document.querySelector(".signup-form");
+      const email = document.querySelector("#aster-email");
+      const error = document.querySelector("#aster-email-error");
+
+      form.noValidate = true;
+      email.addEventListener("input", () => {
+        error.textContent = "";
+        email.setAttribute("aria-invalid", "false");
+      });
+      form.addEventListener("submit", (event) => {
+        const value = email.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value)) {
+          event.preventDefault();
+          error.textContent = value ? %%ERROR_INVALID|json%% : %%ERROR_EMPTY|json%%;
+          email.setAttribute("aria-invalid", "true");
+          email.focus();
+        }
+      });
+
+      if (handles.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let index = 0;
+        let timer;
+        let swap;
+        const stop = () => {
+          clearInterval(timer);
+          clearTimeout(swap);
+          timer = null;
+          swap = null;
+          handle.style.opacity = "1";
+        };
+        const start = () => {
+          if (timer || document.hidden) return;
+          timer = setInterval(() => {
+            handle.style.opacity = "0";
+            swap = setTimeout(() => {
+              index = (index + 1) % handles.length;
+              handle.textContent = handles[index];
+              handle.style.opacity = "1";
+              swap = null;
+            }, 620);
+          }, 3200);
+        };
+        handleLine.addEventListener("mouseenter", stop);
+        handleLine.addEventListener("mouseleave", start);
+        document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+        start();
+      }
+    </script>
+  </body>
+</html>
