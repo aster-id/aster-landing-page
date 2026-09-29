@@ -25,9 +25,7 @@ og_title: Aster ID
 og_description: "An account and hosting for researchers on the open web — a place to build and own your identity, website, data and connections. Not-for-profit, built by researchers, for researchers."
 jsonld_description: "Account and hosting for researchers on the open web: a place to build and own your identity, website, data and connections. Independent, not-for-profit, and built by researchers, for researchers."
 
-# About link (top-right) — points at the shared Notion hub for now (it lists
-# "About Aster" and "FAQ" as sub-pages); swap for a real /about page later.
-about_url: https://m4co.notion.site/Aster-3db96ae906558004956efd17bfdf97ae
+# About link (top-right)
 about_label: About
 
 # Hero
@@ -71,7 +69,6 @@ Everything the build reads lives in the `---` block above. Notes:
 | `bluesky_url` | Footer Bluesky icon link |
 | `blog_url` | Footer blog icon link (Aster ID's Leaflet publication) |
 | `roomy_url` | Footer Roomy chat icon link |
-| `about_url` | Destination for the top-right "About" link (currently the shared Notion hub — swap for a real page later) |
 | `about_label` | Top-right link text |
 | `parent_org` / `founding_year` | JSON-LD `parentOrganization` / `foundingDate` |
 | `page_title` | `<title>` |

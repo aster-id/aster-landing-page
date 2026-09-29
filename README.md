@@ -1,4 +1,4 @@
-# Aster ID — landing page
+# Aster ID — landing page and reading pages
 
 A single-screen "coming soon" landing page for **Aster ID** — verified identity and sovereign data storage for scientists on the AT Protocol.
 
@@ -8,26 +8,30 @@ A single-screen "coming soon" landing page for **Aster ID** — verified identit
 |------|---------|
 | `content.md` | **Edit here.** All copy + config (front-matter block) with a field reference below it. |
 | `template.html` | HTML structure. `%%PLACEHOLDER%%` markers are filled from `content.md`. `{{ }}` are runtime bindings. |
+| `template-page.html`, `template-section.html` | Shared structure for the four static reading pages and their repeated sections. |
+| `pages/*.md` | **Edit here.** Text-only front matter for About, FAQ, Privacy, and Terms. No HTML required for copy changes. |
 | `styles.css` | **Edit here.** All styling (design tokens, layout, components, animations). Inlined at build time. |
 | `Aster ID.dc.html` | **Generated — do not edit.** The deployable single-file page. |
+| `index.html` | **Generated — do not edit.** The same homepage for ordinary static hosting. |
+| `about.html`, `faq.html`, `privacy.html`, `terms.html` | **Generated — do not edit.** Static pages with the same header/footer as the landing page. |
 | `uploads/aster-lockup.svg` | Header wordmark lockup. |
 | `aster-mark.png` | Icon mark (193×193). Also used as favicon / apple-touch-icon. |
 | `uploads/` | Durable asset staging. |
 
 ## Editing & building
 
-1. Edit copy / config in **`content.md`** (or markup in `template.html`).
+1. Edit landing copy / config in **`content.md`**, or reading-page copy in **`pages/*.md`**.
 2. Run **`npm run build`** (or `node build.mjs`).
-3. Commit the regenerated `Aster ID.dc.html` and deploy / re-import to Durable.
+3. For static hosting, deploy `index.html`, the four generated pages, `support.js`, and `uploads/` together. `Aster ID.dc.html` remains the Durable-compatible artifact. Navigation uses relative links.
 
-`build.mjs` replaces `%%KEY%%` tokens in `template.html` with the matching front-matter value from `content.md`. Optional filters: `%%KEY|attr%%` (HTML-escape, default), `%%KEY|json%%` (emits a JSON/JS string literal, used in the `<script>` and JSON-LD blocks), `%%KEY|raw%%`. The build fails if a token has no matching key. See the field reference at the bottom of `content.md`.
+`build.mjs` replaces `%%KEY%%` tokens in `template.html` with the matching front-matter value from `content.md`. The reading pages use the same front-matter parser: each `pages/*.md` supplies `name`, `kind`, `description`, `lead`, and consecutive `section_1_heading` / `section_1_body` fields (with optional `section_1_body_2`). `template-page.html` and `template-section.html` turn these into HTML. Optional token filters: `%%KEY|attr%%` (HTML-escape, default), `%%KEY|json%%` (JSON/JS string literal), `%%KEY|raw%%` (trusted generated markup). The build fails if a token has no matching key.
 
 ### Formatting
 
-`template.html` and `styles.css` are formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width).
+The templates, build script, and stylesheet are formatted with [Prettier](https://prettier.io) (config in `.prettierrc`, 150-col width). The simple front-matter format in `pages/*.md` keeps each field on one line.
 
-- **`npm run format`** — reformat both files in place
-- **`npx prettier --check template.html styles.css`** — verify without writing
+- **`npm run format`** — reformat source files in place
+- **`npx prettier --check build.mjs template.html template-page.html template-section.html styles.css`** — verify without writing
 
 ### Hero treatments
 
@@ -58,7 +62,7 @@ Set these in `content.md`, then rebuild:
 - [ ] **Signup flow** — verify the Leaflet subscription and confirmation redirect on the deployed page.
 - [ ] **Footer links** — verify ATScience and Modal Foundation destinations.
 - [ ] **Production domain** — `domain` is `https://aster.id/` (must end with `/`). Feeds the canonical / Open Graph / JSON-LD URLs.
-- [ ] **FAQ, Privacy, Terms** — the visible links are disabled placeholders. Publish real pages, then replace their `href="#"` values and remove `aria-disabled`, `tabindex`, and `placeholder-link`.
+- [ ] **About, FAQ, Privacy, Terms** — replace the Redacted Script lorem ipsum with reviewed copy before publishing. Privacy and Terms are not usable policies yet.
 - [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie consent if Durable injects any cookies/analytics).
 - [ ] **ID card** — replace its redacted placeholder bars with approved explanatory copy.
 

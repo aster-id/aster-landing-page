@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f5f1" />
+    <title>%%PAGE_TITLE%%</title>
+    <meta name="description" content="%%PAGE_DESCRIPTION|attr%%" />
+    <link rel="canonical" href="%%PAGE_CANONICAL|attr%%" />
+    <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png" />
+    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png" />
+    <style>
+      %%CSS%%
+    </style>
+  </head>
+  <body>
+    <div class="page reading-page">
+      %%HEADER|raw%%
+      <main class="reading-main" id="main">
+        <div class="reading-layout">
+          <div class="reading-topline">
+            <span>Aster ID / %%PAGE_NUMBER%%</span>
+            <span>%%PAGE_KIND%%</span>
+          </div>
+          <div class="reading-heading">
+            <p class="reading-kicker">%%PAGE_KIND%%</p>
+            <h1>%%PAGE_NAME%%</h1>
+          </div>
+          <div class="reading-columns">
+            <aside class="reading-margin" aria-hidden="true">%%PAGE_NUMBER%% / Aster ID</aside>
+            <div class="reading-content">
+              <p class="reading-lead redacted">%%PAGE_LEAD%%</p>
+              %%SECTIONS|raw%%
+            </div>
+          </div>
+          <a class="reading-return" href="./">← Back to Aster ID</a>
+        </div>
+      </main>
+      %%FOOTER|raw%%
+    </div>
+  </body>
+</html>
