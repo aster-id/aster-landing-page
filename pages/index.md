@@ -32,9 +32,8 @@ about_label: About
 hero_treatment: balanced
 handle_suffix: .aster.id
 handles: "@your-name, @your-lab, @your-org"
-eyebrow: A non-profit initiative
 headline: Your home for research on the open web.
-body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers."
+body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Independent, not-for-profit, and built by researchers, for researchers."
 
 # Signup form — subscribes via Leaflet (https://leaflet.pub), a real GET
 # submission (not JS/fetch), so leaflet_subscribe_action must stay exactly
