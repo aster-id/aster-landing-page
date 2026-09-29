@@ -34,7 +34,7 @@ about_label: About
 hero_treatment: balanced
 handle_suffix: .aster.id
 handles: "@your-name, @your-lab, @your-org"
-eyebrow: Aster ID
+eyebrow: A non-profit initiative
 headline: Your home for research on the open web.
 body: "An account and hosting for researchers on the open web: a place where you build and own your identity, website, data and connections. Not-for-profit, and built by researchers, for researchers."
 
@@ -81,7 +81,7 @@ Everything the build reads lives in the `---` block above. Notes:
 | `hero_treatment` | Default layout: `balanced` \| `handle-first` \| `type-only` |
 | `handle_suffix` | Text after the animated handle, e.g. `.aster.id` |
 | `handles` | Comma-separated list that cycles in the hero (`your-name` → `your-name.aster.id`) |
-| `eyebrow` | Small uppercase label — only shown in the `type-only` treatment |
+| `eyebrow` | Small uppercase label above the hero, shown in all treatments. |
 | `headline` | The `<h1>` in all three treatments. |
 | `body` | Supporting paragraph (same across all three treatments) |
 | `leaflet_subscribe_url` | The signup `<form>`'s `action` (Leaflet's email-login endpoint) |

@@ -43,7 +43,7 @@ Three interchangeable hero layouts, switchable via the `heroTreatment` prop (`ba
 | Hero headline (`handle-first`) | `heading-1` (fluid 30–36px) |
 | Header “Aster ID” | SVG lockup |
 | Hero paragraph | `lead` |
-| Type-only eyebrow | `eyebrow` |
+| Hero and card eyebrows | `eyebrow` |
 | About link, signup button | `label-default` |
 | Email input, validation error | `body-small` |
 | Launch note, footer sentence | `metadata` |
@@ -58,7 +58,9 @@ Set these in `content.md`, then rebuild:
 - [ ] **Signup flow** — verify the Leaflet subscription and confirmation redirect on the deployed page.
 - [ ] **Footer links** — verify ATScience and Modal Foundation destinations.
 - [ ] **Production domain** — `domain` is `https://aster.id/` (must end with `/`). Feeds the canonical / Open Graph / JSON-LD URLs.
-- [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie consent if Durable injects any cookies/analytics). Not yet wired into the template.
+- [ ] **FAQ, Privacy, Terms** — the visible links are disabled placeholders. Publish real pages, then replace their `href="#"` values and remove `aria-disabled`, `tabindex`, and `placeholder-link`.
+- [ ] **Privacy policy** — the email form needs a linked privacy policy (and cookie consent if Durable injects any cookies/analytics).
+- [ ] **ID card** — replace its redacted placeholder bars with approved explanatory copy.
 
 ---
 
