@@ -30,6 +30,7 @@
       <!-- Copy & config: pages/index.md · styles: src/styles.css · rebuild: npm run build -->
       <div class="page">
         <header class="site-header">
+          <a class="skip-link" href="#main">Skip to content</a>
           <a class="brand" href="./" aria-label="Aster ID home">
             <img class="brand-lockup" src="uploads/aster-lockup.svg" alt="Aster ID" width="800" height="205" />
           </a>
@@ -39,7 +40,7 @@
           </nav>
         </header>
 
-        <main class="middle">
+        <main class="middle" id="main" tabindex="-1">
           <div class="hero-layout">
             <div class="hero">
               <sc-if value="{{ isBalanced }}" hint-placeholder-val="{{ true }}">
@@ -91,7 +92,12 @@
               <p class="tagline">%%TAGLINE%%</p>
             </div>
             <aside class="id-card" aria-label="Example Aster ID">
-              <p class="card-eyebrow">An Aster ID</p>
+              <div class="card-header">
+                <p class="card-eyebrow">An Aster ID</p>
+                <button class="cycle-toggle" type="button" aria-label="{{ cycleLabel }}" onClick="{{ toggleCycle }}" style="{{ cycleToggleStyle }}">
+                  <span aria-hidden="true">{{ cycleIcon }}</span>
+                </button>
+              </div>
               <p class="handle-line" onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}">
                 <span class="handle-name" style="{{ handleStyle }}">{{ handleName }}</span><span>%%HANDLE_SUFFIX%%</span>
               </p>
@@ -179,7 +185,7 @@
       const HANDLE_WIDTH = Math.max(0, ...HANDLES.map(handle => handle.length));
 
       class Component extends DCLogic {
-        state = { idx: 0, fading: false, email: "", error: "" };
+        state = { idx: 0, fading: false, paused: false, email: "", error: "" };
 
         componentDidMount() {
           this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -187,9 +193,9 @@
         }
         componentWillUnmount() { this.stop(); }
 
-        start() {
+        start(force = false) {
           const on = this.props.cycleHandles ?? true;
-          if (this.reduced || !on || this.timer) return;
+          if (this.reduced || !on || (!force && this.state.paused) || this.timer || HANDLES.length < 2) return;
           // one clock: fade out, swap text while invisible, fade back in
           this.timer = setInterval(() => {
             this.setState({ fading: true });
@@ -202,6 +208,16 @@
           clearInterval(this.timer); this.timer = null;
           clearTimeout(this.swapTimer);
           if (this.state.fading) this.setState({ fading: false });
+        }
+
+        toggleCycle() {
+          if (this.state.paused) {
+            this.setState({ paused: false });
+            this.start(true);
+          } else {
+            this.setState({ paused: true });
+            this.stop();
+          }
         }
 
         submit(e) {
@@ -223,6 +239,10 @@
             isTypeOnly: t === "type-only",
             handleName: HANDLES[this.state.idx],
             handleStyle: { width: `${HANDLE_WIDTH}ch`, opacity: this.state.fading ? 0 : 1, transition: "opacity 600ms ease-in-out" },
+            cycleLabel: this.state.paused ? "Play handle animation" : "Pause handle animation",
+            cycleIcon: this.state.paused ? "▶" : "⏸",
+            cycleToggleStyle: { display: HANDLES.length < 2 || !(this.props.cycleHandles ?? true) ? "none" : "" },
+            toggleCycle: () => this.toggleCycle(),
             email: this.state.email,
             error: this.state.error,
             invalid: !!this.state.error,

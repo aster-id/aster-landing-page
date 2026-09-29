@@ -29,6 +29,7 @@
       const handles = %%HANDLES|json%%;
       const handle = document.querySelector(".handle-name");
       const handleLine = document.querySelector(".handle-line");
+      const cycleToggle = document.querySelector(".cycle-toggle");
       const form = document.querySelector(".signup-form");
       const email = document.querySelector("#aster-email");
       const error = document.querySelector("#aster-email-error");
@@ -52,6 +53,7 @@
         let index = 0;
         let timer;
         let swap;
+        let paused = false;
         const stop = () => {
           clearInterval(timer);
           clearTimeout(swap);
@@ -60,7 +62,7 @@
           handle.style.opacity = "1";
         };
         const start = () => {
-          if (timer || document.hidden) return;
+          if (timer || document.hidden || paused) return;
           timer = setInterval(() => {
             handle.style.opacity = "0";
             swap = setTimeout(() => {
@@ -73,6 +75,12 @@
         };
         handleLine.addEventListener("mouseenter", stop);
         handleLine.addEventListener("mouseleave", start);
+        cycleToggle.addEventListener("click", () => {
+          paused = !paused;
+          cycleToggle.setAttribute("aria-label", paused ? "Play handle animation" : "Pause handle animation");
+          cycleToggle.querySelector("span").textContent = paused ? "▶" : "⏸";
+          paused ? stop() : start();
+        });
         document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
         start();
       }

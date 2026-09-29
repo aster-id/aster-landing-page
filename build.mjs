@@ -103,7 +103,7 @@ const sharedFooter = render(footer, values, "footer");
 
 // Lower the chosen hero branch and the few DC bindings into static HTML.
 // Keep the layout in home.durable.html so both homepage builds share it.
-let main = template.match(/<main class="middle">[\s\S]*?<\/main>/)?.[0];
+let main = template.match(/<main class="middle"[^>]*>[\s\S]*?<\/main>/)?.[0];
 const structuredData = template.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)?.[0];
 if (!main || !structuredData) throw new Error("src/templates/home.durable.html: missing main or structured data");
 const treatments = { balanced: "isBalanced", "handle-first": "isHandleFirst", "type-only": "isTypeOnly" };
@@ -120,6 +120,9 @@ main = main
   .replace('aria-invalid="{{ invalid }}"', 'aria-invalid="false"')
   .replace("{{ error }}", "")
   .replace(' onMouseEnter="{{ pauseCycle }}" onMouseLeave="{{ resumeCycle }}"', "")
+  .replace(' onClick="{{ toggleCycle }}" style="{{ cycleToggleStyle }}"', values.handles.length < 2 ? " hidden" : "")
+  .replace("{{ cycleLabel }}", "Pause handle animation")
+  .replace("{{ cycleIcon }}", "⏸")
   .replace(
     'style="{{ handleStyle }}"',
     `style="width: ${Math.max(...values.handles.map((handle) => handle.length))}ch; opacity: 1; transition: opacity 600ms ease-in-out"`,
