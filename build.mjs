@@ -161,7 +161,13 @@ for (const [index, slug] of pages.entries()) {
   const sections = numbers.map((number) => {
     const prefix = `section_${number}`;
     if (!page[`${prefix}_body`]) throw new Error(`${filename}: missing ${prefix}_body`);
-    const paragraphs = [page[`${prefix}_body`], page[`${prefix}_body_2`]].filter(Boolean);
+    // section_N_body is paragraph 1; section_N_body_2, _body_3, ... add more paragraphs.
+    const paragraphs = [];
+    for (let n = 1; ; n++) {
+      const key = n === 1 ? `${prefix}_body` : `${prefix}_body_${n}`;
+      if (!page[key]) break;
+      paragraphs.push(page[key]);
+    }
     return render(
       sectionTemplate,
       {
