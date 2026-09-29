@@ -5,13 +5,13 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { renderReadingPage } from "./src/reading-markdown.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const CONTENT = join(root, "pages", "index.md");
 const TEMPLATE = join(root, "src", "templates", "home.durable.html");
 const STATIC_TEMPLATE = join(root, "src", "templates", "home.static.html");
 const PAGE_TEMPLATE = join(root, "src", "templates", "page.html");
-const SECTION_TEMPLATE = join(root, "src", "templates", "section.html");
 const STYLES = join(root, "src", "styles.css");
 const OUTPUT_DIR = join(root, "docs");
 const OUTPUT = join(OUTPUT_DIR, "Aster ID.dc.html");
@@ -142,49 +142,30 @@ writeFileSync(join(OUTPUT_DIR, "index.html"), staticHome.replace(/^<!DOCTYPE htm
 console.log("✓ wrote index.html");
 
 const pageTemplate = readFileSync(PAGE_TEMPLATE, "utf8");
-const sectionTemplate = readFileSync(SECTION_TEMPLATE, "utf8");
 const pages = ["about", "faq", "privacy", "terms"];
 
-for (const [index, slug] of pages.entries()) {
+for (const slug of pages) {
   const filename = `pages/${slug}.md`;
-  const page = parseContent(readFileSync(join(root, filename), "utf8"), filename);
-  for (const key of ["name", "kind", "description", "lead"]) {
-    if (!page[key]) throw new Error(`${filename}: missing ${key}`);
-  }
-  const numbers = Object.keys(page)
-    .filter((key) => /^section_\d+_heading$/.test(key))
-    .map((key) => Number(key.match(/\d+/)[0]))
-    .sort((a, b) => a - b);
-  if (!numbers.length || numbers.some((number, i) => number !== i + 1)) {
-    throw new Error(`${filename}: sections must be numbered consecutively from 1`);
-  }
-  const sections = numbers.map((number) => {
-    const prefix = `section_${number}`;
-    if (!page[`${prefix}_body`]) throw new Error(`${filename}: missing ${prefix}_body`);
-    const paragraphs = [page[`${prefix}_body`], page[`${prefix}_body_2`]].filter(Boolean);
-    return render(
-      sectionTemplate,
-      {
-        section_heading: page[`${prefix}_heading`],
-        section_paragraphs: paragraphs.map((text) => `<p class="redacted">${escHtml(text)}</p>`).join("\n"),
-      },
-      "src/templates/section.html",
-    );
-  });
+  const source = readFileSync(join(root, filename), "utf8");
+  const page = parseContent(source, filename);
+  if (!page.description) throw new Error(`${filename}: missing description`);
+  const body = source.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)([\s\S]*)$/)?.[1];
+  if (body === undefined) throw new Error(`${filename}: missing Markdown body after front matter`);
+  const content = renderReadingPage(body.trim(), filename);
   const html = render(
     pageTemplate,
     {
       ...values,
       header: sharedHeader,
       footer: sharedFooter,
-      page_title: `${page.name} — Aster ID`,
+      page_title: `${content.title} — Aster ID`,
       page_description: page.description,
       page_canonical: new URL(`${slug}.html`, data.domain).href,
-      page_number: String(index + 1).padStart(2, "0"),
-      page_kind: page.kind,
-      page_name: page.name,
-      page_lead: page.lead,
-      sections: sections.join("\n"),
+      page_slug: slug,
+      page_placeholder: page.placeholder === "true" ? " reading-page--placeholder" : "",
+      page_heading: content.heading,
+      page_intro: content.intro,
+      sections: content.sections,
     },
     "src/templates/page.html",
   );

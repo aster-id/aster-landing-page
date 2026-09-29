@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
+    "test": "node --test",
     "format": "prettier --write build.mjs 'src/templates/*.html' src/styles.css"
   },
   "devDependencies": {
     "prettier": "^3.9.6"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.2"
   }
 }

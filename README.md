@@ -5,7 +5,8 @@ A "coming soon" page for **Aster ID** — verified identity and sovereign data s
 ## Development
 
 ### Editing
-- `pages/` contains markdown files for quick editing of website content. `index.md` is for the homepage and site configuration.
+- `pages/index.md` holds homepage copy and site configuration. 
+- The rest of `pages/` uses front matter for the page description and Markdown for the page content. The first `#` and everything up to the first `##` appear with a purple background. `##` sections and their contents appear on the white-paper background. Links, multiple paragraphs, lists, and subheadings are supported. Raw HTML is escaped. Remove `placeholder: true` from front matter when replacing draft copy.
 - `src/styles.css` and `src/templates/` control the site styling and markup.
 - `docs/uploads/` are hand-managed assets for the site build, including images, fonts, and licenses.
 

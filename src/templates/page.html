@@ -14,26 +14,20 @@
     </style>
   </head>
   <body>
-    <div class="page reading-page">
+    <div class="page reading-page reading-page--%%PAGE_SLUG%%%%PAGE_PLACEHOLDER%%">
       %%HEADER|raw%%
       <main class="reading-main" id="main">
-        <div class="reading-layout">
-          <div class="reading-topline">
-            <span>Aster ID / %%PAGE_NUMBER%%</span>
-            <span>%%PAGE_KIND%%</span>
+        <div class="reading-intro">
+          <div class="reading-layout">
+            %%PAGE_HEADING|raw%%
+            <div class="reading-lead">%%PAGE_INTRO|raw%%</div>
           </div>
-          <div class="reading-heading">
-            <p class="reading-kicker">%%PAGE_KIND%%</p>
-            <h1>%%PAGE_NAME%%</h1>
+        </div>
+        <div class="reading-body">
+          <div class="reading-layout reading-content">
+            %%SECTIONS|raw%%
+            <a class="reading-return" href="./">← Back to Aster ID</a>
           </div>
-          <div class="reading-columns">
-            <aside class="reading-margin" aria-hidden="true">%%PAGE_NUMBER%% / Aster ID</aside>
-            <div class="reading-content">
-              <p class="reading-lead redacted">%%PAGE_LEAD%%</p>
-              %%SECTIONS|raw%%
-            </div>
-          </div>
-          <a class="reading-return" href="./">← Back to Aster ID</a>
         </div>
       </main>
       %%FOOTER|raw%%
