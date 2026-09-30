@@ -28,9 +28,4 @@ In parallel, we’re developing more products - see FAQ: [What other products an
 
 ## Reach out, join in
 
-We've learnt a lot preparing Aster for launch, and aim to continue learning in public. So if you have any questions or ideas, or would simply like to get in touch:
-
-- check out [our FAQs](/faq.md).
-- subscribe to, read and comment on [our Leaflet blog](https://aster.leaflet.pub/), where we're exploring the hard questions (*"What does "for scientists and researcher" actually mean? How will you check? Will you moderate? How?"*)
-- follow and reach out to us on Bluesky (see FAQ: [What's ATScience? Who’s on the Aster team?](/faq.md))
-- contact us and join the wait list *(form?)*
+We've learnt a lot preparing Aster for launch, and aim to continue learning in public. So if you have any questions or ideas, or would simply like to get in touch, check out [FAQ: How do I learn more and contact you?](/faq.md).
