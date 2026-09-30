@@ -42,7 +42,7 @@ As we launch we're also preparing and exploring:
 
 - a portal to the Atmosphere for scientists
 - a personal website service for scientists
-- researcher verification (link to verification blog post)
+- researcher verification processes and tools (see our blog for more)
 
 ## How do you know I'm really a researcher?
 
@@ -58,13 +58,7 @@ TL:DR;
 
 ## What's ATScience? Who’s on the Aster team?
 
-[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps. It is fiscally hosted by the Modal Foundation.
-
-The Aster team can be found in the Aster Starter Pack, which also includes our custom feeds:
-
-- custom feed description
-- custom feed description
-- custom feed description
+[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps. It is fiscally hosted by the [Modal Foundation](https://www.modalfoundation.org/). 
 
 ## What does it cost, and how do I sign up?
 
@@ -76,7 +70,6 @@ Currently Aster is invite-only, so join the waitlist via our contact form.
 
 We’re unpacking and exploring the challenges and opportunities of Aster in public, so:
 
-- subscribe to, read and comment on our Leaflet blog
-- follow our Bluesky account
-- pin our custom feed(s)
+- subscribe to, read and comment on [our Leaflet blog](https://aster.leaflet.pub/)
+- follow [our Bluesky account](https://mu.social/profile/aster.id)
 - reach out via our contact form, through which you can also join the waiting list
