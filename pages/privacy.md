@@ -1,6 +1,6 @@
 ---
-# Placeholder copy. Not a privacy policy; replace before publishing.
-description: Aster ID privacy page. Placeholder content for visual design review; not a privacy policy.
+# Not yet a real privacy policy — see the page content.
+description: Aster ID privacy policy — coming once our PDS service launches.
 placeholder: false
 ---
 

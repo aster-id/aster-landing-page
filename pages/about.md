@@ -1,5 +1,5 @@
 ---
-description: About Aster ID. Placeholder content for visual design review.
+description: Aster gives researchers the infrastructure to own their identity, data, and network on the open social web.
 placeholder: false
 ---
 

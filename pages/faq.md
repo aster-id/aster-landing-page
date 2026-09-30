@@ -1,5 +1,5 @@
 ---
-description: Frequently asked questions about Aster ID. Placeholder content for visual design review.
+description: Answers about Aster ID — what the Atmosphere is, who it's for, how verification works, and how to get involved.
 placeholder: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-# Placeholder copy. Not terms of service; replace before publishing.
-description: Aster ID terms page. Placeholder content for visual design review; not terms of service.
+# Not yet real terms of service — see the page content.
+description: Aster ID terms of service — coming once our PDS service launches.
 placeholder: false
 ---
 
