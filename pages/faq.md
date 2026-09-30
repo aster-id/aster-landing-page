@@ -84,4 +84,3 @@ We’re unpacking and exploring the challenges and opportunities of Aster in pub
 
 - subscribe to, read and comment on [our blog](https://blog.aster.place/)
 - follow our Bluesky account - on [Mu](https://mu.social/profile/aster.id) or on [Bluesky](https://bsky.social/profile/aster.id)
-<!-- - reach out via our contact form, through which you can also join the waiting list -->
