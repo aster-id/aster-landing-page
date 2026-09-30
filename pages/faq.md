@@ -48,7 +48,7 @@ As we launch we're also preparing and exploring:
 
 ## How do you know I'm really a researcher?
 
-This is the central question for Aster once we leave the invite-only phase, and so forms the heart of one of our launch-phase blog posts - How should verification work on Aster?
+This is the central question for Aster once we leave the invite-only phase, and so forms the heart of one of our launch-phase blog posts - [How should verification work on Aster?](https://blog.aster.place/3mwqlbu2q3c2b)
 
 TL:DR; 
 
@@ -56,7 +56,7 @@ TL:DR;
 - we’re still working through how we’ll manage this once we open applications more widely, and hope to have a good discussion on it at our launch event.
 - we’re currently open to self-identified researchers, and are exploring ways to layer additional trust on top via tools like invite chains, labels, and verification by academic organisations
 - we’re currently not exploring identity-based verification
-- more in that blog post - if you have a view, we want to hear it.
+- more in [that blog post](https://blog.aster.place/3mwqlbu2q3c2b) - if you have a view, we want to hear it.
 
 ## What's ATScience? Who’s on the Aster team?
 
