@@ -1,10 +1,12 @@
 ---
-# Placeholder copy. Replace before publishing.
 description: Frequently asked questions about Aster ID. Placeholder content for visual design review.
-placeholder: true
+placeholder: false
 ---
 
 # FAQs
+
+Frequently asked questions about Aster ID.
+
 
 ## What is the Atmosphere?
 
@@ -58,18 +60,28 @@ TL:DR;
 
 ## What's ATScience? Who’s on the Aster team?
 
-[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps. It is fiscally hosted by the [Modal Foundation](https://www.modalfoundation.org/). 
+[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps.
+
+The Aster project is fiscally hosted by the [Modal Foundation](https://www.modalfoundation.org/), a Dutch non-profit who graciously agreed to provide legal and fiscal support to our project. Modal are the host of numerous Atmosphere projects, including [Eurosky](https://eurosky.tech/).
+
+## Where is Aster based?
+
+Our core team are in many countries around the world.
+
+Our legal and fiscal host, the [Modal Foundation](https://www.modalfoundation.org/), is based in the Netherlands, making this the legal home country of our project. 
+
+Aster is for researchers in all countries, but we have chosen to base our data hosting in the EU, owing to its political stability and strong privacy protection laws.
 
 ## What does it cost, and how do I sign up?
 
 An Aster identity and PDS are free.
 
-Currently Aster is invite-only, so join the waitlist via our contact form.
+Currently, Aster is invite-only. Subscribe to [our blog](https://blog.aster.place/) to get updates about when we'll add more users.
 
 ## How do I learn more and contact you?
 
 We’re unpacking and exploring the challenges and opportunities of Aster in public, so:
 
-- subscribe to, read and comment on [our Leaflet blog](https://aster.leaflet.pub/)
-- follow [our Bluesky account](https://mu.social/profile/aster.id)
-- reach out via our contact form, through which you can also join the waiting list
+- subscribe to, read and comment on [our blog](https://blog.aster.place/)
+- follow our Bluesky account - on [Mu](https://mu.social/profile/aster.id) or on [Bluesky](https://bsky.social/profile/aster.id)
+<!-- - reach out via our contact form, through which you can also join the waiting list -->

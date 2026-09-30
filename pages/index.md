@@ -11,7 +11,7 @@
 # Brand / URLs
 site_name: Aster ID
 domain: https://aster.place/
-contact_email: hello@aster.id
+contact_email: contact@aster.place
 bluesky_url: https://bsky.app/profile/aster.id
 blog_url: https://aster.leaflet.pub
 roomy_url: https://roomy.space/did:plc:b6csk4ofw7vpwrgz2aci57ey
@@ -47,7 +47,7 @@ email_placeholder: you@example.com
 submit_button: Sign up for updates
 error_invalid: That doesn't look like an email address.
 error_empty: Please enter your email address.
-tagline: Launching autumn 2026.
+tagline: Launching Autumn 2026.
 
 # Footer (the two links appear inline in the fine-print sentence: "An {1} project, fiscally hosted by the {2}.")
 footer_link_1_label: ATScience
@@ -86,7 +86,7 @@ Everything the build reads lives in the `---` block above. Notes:
 | `email_label` | Visually-hidden `<label>` for the email input |
 | `email_placeholder` / `submit_button` | Form input placeholder / button text |
 | `error_invalid` / `error_empty` | Client-side validation messages (only shown when the browser blocks submission, e.g. bad email format) |
-| `tagline` | Line under the form (`Launching autumn 2026.`) |
+| `tagline` | Line under the form (`Launching Autumn 2026.`) |
 | `footer_link_1_*` / `footer_link_2_*` | Label + href for the two inline links in the footer's fine-print sentence |
 
 Structural brand references (image `alt`, `aria-label`s like "Aster ID on Bluesky") live in `src/templates/home.durable.html`, not here.
