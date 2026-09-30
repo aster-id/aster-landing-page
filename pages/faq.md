@@ -46,6 +46,10 @@ As we launch we're also preparing and exploring:
 - a personal website service for scientists
 - researcher verification processes and tools (see our blog for more)
 
+## What do you mean when you say "researchers"?
+
+When we say researchers, we mean it broadly: obviously academics and students, but also independent scholars, citizen scientists, participatory and community-based researchers, research software engineers, librarians and archivists, and anyone doing careful, systematic inquiry into how the world works. Exactly where the lines fall, and how to verify researchers without becoming gatekeepers, is one of the open questions we want to work through with you! (see below)
+
 ## How do you know I'm really a researcher?
 
 This is the central question for Aster once we leave the invite-only phase, and so forms the heart of one of our launch-phase blog posts - [How should verification work on Aster?](https://blog.aster.place/3mwqlbu2q3c2b)
