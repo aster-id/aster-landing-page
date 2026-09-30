@@ -13,7 +13,7 @@ site_name: Aster ID
 domain: https://aster.place/
 contact_email: contact@aster.place
 bluesky_url: https://bsky.app/profile/aster.id
-blog_url: https://aster.leaflet.pub
+blog_url: https://blog.aster.place
 roomy_url: https://roomy.space/did:plc:b6csk4ofw7vpwrgz2aci57ey
 parent_org: ATScience
 founding_year: 2026
@@ -41,7 +41,7 @@ body: "An account and hosting for researchers on the open web: a place where you
 # sends the subscriber to leaflet_redirect_url.
 leaflet_subscribe_url: https://leaflet.pub/api/auth/email-login
 leaflet_subscribe_action: "%7B%22action%22%3A%22subscribe%22%2C%22publication%22%3A%22at%3A%2F%2Fdid%3Aplc%3Aifn645rwvsuolxg7o3w7ouo4%2Fsite.standard.publication%2F3mvimt7nmrs2m%22%7D"
-leaflet_redirect_url: https://aster.leaflet.pub
+leaflet_redirect_url: https://blog.aster.place
 email_label: Email address
 email_placeholder: you@example.com
 submit_button: Sign up for updates
