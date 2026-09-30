@@ -4,20 +4,36 @@ description: About Aster ID. Placeholder content for visual design review.
 placeholder: true
 ---
 
-# About
+# About Aster
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien ut magna facilisis dictum non quis lorem.
+**Aster gives scientists and academics the infrastructure they need to get the most out of the Atmosphere - the open social web where Bluesky and many other interoperable apps are growing together.**
 
-## Our purpose
+That means:
 
-Praesent euismod, ipsum in dignissim accumsan, sem ligula viverra tellus, non luctus sapien neque sed lectus. Curabitur ornare ante vel libero efficitur, quis elementum tortor feugiat. Nulla facilisi. Morbi vulputate ex at mi tincidunt, vitae convallis velit fermentum.
+- your Aster identity (`yourname.aster.id`) and Personal Data Store (PDS) is yours: if you ever decide to move elsewhere, you can take your content *and* network with you - you'll never be locked in.
+- your Aster account works with [all Atmosphere apps](https://atstore.fyi/), including those we’re developing as well as the growing [ATScience ecosystem](https://atproto.science/ecosystem/) of research apps and services.
+- all apps are "uncapturable" by any one company or organisation, so enshittification is impossible - just like the open Web, but social.
 
-Vestibulum dictum mauris ut justo ultrices, quis maximus massa placerat. Donec mollis, sapien ac cursus feugiat, felis neque posuere nibh, a blandit dolor purus vel nisi.
+More: FAQ: What is the Atmosphere?
 
-## What we believe
+All Aster products are designed for researchers and academics, who have been [early adopters since Bluesky's launch](https://www.sciencedirect.com/science/article/pii/S1751157725000641).
 
-Maecenas sed sem sit amet velit bibendum gravida. Integer dignissim tincidunt libero, sed efficitur ante luctus at. In vitae augue vitae sapien malesuada faucibus nec non lorem. Cras varius diam a erat consequat, ac faucibus lorem ultrices.
+Aster itself is a project of [ATScience](https://atproto.science/), a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps, fiscally hosted by the Modal Foundation.
 
-## Who's behind it
+## Preparing for alpha launch
 
-Aliquam erat volutpat. Aenean ut turpis eu felis finibus volutpat vel id tellus. Phasellus ullamcorper metus in lorem interdum, non faucibus purus aliquam. Sed blandit, nibh et placerat fringilla, sapien velit lobortis nisi, et varius lectus augue nec lorem.
+Today (*October 2026*) Aster is just getting started. We're launching our first product - Aster identity and PDS service - as an invite-only service at [IOSP 2026](https://www.iosp.science/#iosp2026), so we can learn from a small group of early adopters before releasing Aster more widely.
+
+In parallel, we’re developing more products:
+- a portal to the Atmosphere for scientists
+- a personal website service for scientists
+- researcher verification processes and tools (see our blog for more)
+
+## Reach out, join in
+
+We've learnt a lot preparing Aster for launch, and aim to continue learning in public. So if you have any questions or ideas, or would simply like to get in touch:
+
+- check out our FAQs
+- subscribe to, read and comment on [our Leaflet blog](https://aster.leaflet.pub/), where we're exploring the hard questions (*"What does "for scientists and researcher" actually mean? How will you check? Will you moderate? How?"*)
+- follow and reach out to us on Bluesky (see FAQ: What's ATScience? Who’s on the Aster team?)
+- join the wait list *(form?)*
