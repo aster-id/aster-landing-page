@@ -64,7 +64,7 @@ TL:DR;
 
 ## What's ATScience? Who’s on the Aster team?
 
-[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps.
+[ATScience](https://atproto.science/) is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps, while the team behind Aster can be found on the [Aster Starter Pack](https://mu.social/profile/did:plc:ifn645rwvsuolxg7o3w7ouo4/lists/3mwqn3ruw4m22).
 
 The Aster project is fiscally hosted by the [Modal Foundation](https://www.modalfoundation.org/), a Dutch non-profit who graciously agreed to provide legal and fiscal support to our project. Modal are the host of numerous Atmosphere projects, including [Eurosky](https://eurosky.tech/).
 
@@ -74,7 +74,7 @@ Our core team are in many countries around the world.
 
 Our legal and fiscal host, the [Modal Foundation](https://www.modalfoundation.org/), is based in the Netherlands, making this the legal home country of our project. 
 
-Aster is for researchers in all countries, but we have chosen to base our data hosting in the EU, owing to its political stability and strong privacy protection laws.
+Aster is for researchers in all countries. We have chosen to base our data hosting in the EU, owing to its political stability and strong privacy protection laws.
 
 ## What does it cost, and how do I sign up?
 
