@@ -20,7 +20,7 @@ founding_year: 2026
 
 # <head> / social share
 page_title: Aster ID — a home for researchers on the open web
-meta_description: "Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching autumn 2026."
+meta_description: "Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching Autumn 2026."
 og_title: Aster ID
 og_description: "An account and hosting for researchers on the open web — a place to build and own your identity, website, data and connections. Not-for-profit, built by researchers, for researchers."
 jsonld_description: "Account and hosting for researchers on the open web: a place to build and own your identity, website, data and connections. Independent, not-for-profit, and built by researchers, for researchers."
