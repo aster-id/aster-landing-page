@@ -46,9 +46,15 @@ test("escapes raw HTML and rejects unsafe link schemes", () => {
   assert.doesNotMatch(page.sections, /href="javascript:/);
 });
 
-test("requires an intro and paper section", () => {
+test("requires a # heading and a ## section", () => {
   assert.throws(() => renderReadingPage("Body without heading", "sample.md"), /must start with a # heading/);
-  assert.throws(() => renderReadingPage("# Title\n\n## Section", "sample.md"), /add intro content/);
-  assert.throws(() => renderReadingPage("# Title\n\nIntro", "sample.md"), /add intro content/);
+  assert.throws(() => renderReadingPage("# Title\n\nIntro", "sample.md"), /add a ## section/);
   assert.throws(() => renderReadingPage("# Title\n\nIntro\n\n## Section\n\n# Another", "sample.md"), /only one # heading/);
+});
+
+test("allows a page without intro content", () => {
+  const page = renderReadingPage("# Title\n\n## Section\n\nBody.", "sample.md");
+  assert.equal(page.title, "Title");
+  assert.equal(page.intro, "");
+  assert.match(page.sections, /<h2>Section<\/h2>/);
 });

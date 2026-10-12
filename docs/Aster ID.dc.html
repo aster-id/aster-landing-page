@@ -258,6 +258,20 @@ a:hover {
 .about-link:hover {
   color: var(--violet-ink);
 }
+.login-link {
+  padding: 10px 20px;
+  background: var(--violet);
+  color: var(--paper);
+  font: var(--type-label-default);
+  letter-spacing: var(--type-label-default-tracking);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 220ms ease;
+}
+.login-link:hover {
+  background: var(--violet-ink);
+  color: var(--paper);
+}
 .site-header :focus-visible {
   outline-color: var(--violet);
 }
@@ -764,6 +778,9 @@ a:hover {
   .header-nav .about-link {
     padding-inline: 4px;
   }
+  .header-nav .login-link {
+    padding-inline: 14px;
+  }
   .primary {
     padding-block: clamp(2.5rem, 7vw, 4rem);
   }
@@ -805,6 +822,7 @@ a:hover {
           <nav class="header-nav" aria-label="Main navigation">
             <a class="about-link" href="about.html">About</a>
             <a class="about-link" href="faq.html">FAQ</a>
+            <a class="login-link" href="https://aster.id/account/">Login</a>
           </nav>
         </header>
 
