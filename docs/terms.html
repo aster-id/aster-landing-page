@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f5f1" />
     <title>Terms of Service — Aster ID</title>
-    <meta name="description" content="Aster ID terms of service — coming once our PDS service launches." />
+    <meta name="description" content="The Aster ID terms of service." />
     <link rel="canonical" href="https://aster.place/terms.html" />
     <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png" />
     <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png" />
@@ -607,7 +607,7 @@ a:hover {
 }
 .reading-layout {
   box-sizing: border-box;
-  width: min(100%, 54rem);
+  width: min(100%, 57.5rem);
   margin-inline: auto;
   padding-inline: var(--page-gutter);
 }
@@ -632,6 +632,13 @@ a:hover {
   max-width: 65ch;
   font: var(--type-lead);
 }
+.reading-meta {
+  margin: 0 0 24px;
+  font: var(--type-metadata);
+  letter-spacing: var(--type-metadata-tracking);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
 .reading-lead p {
   margin: 0 0 20px;
 }
@@ -648,14 +655,6 @@ a:hover {
 }
 .reading-content {
   font: var(--type-body-default);
-}
-.reading-page--placeholder .reading-lead p,
-.reading-page--placeholder .reading-content p {
-  font-family: "Redacted Script", var(--font-family-sans-serif);
-  line-height: 1.65;
-}
-.reading-content > * {
-  max-width: 65ch;
 }
 .reading-content h2 {
   margin: clamp(48px, 6vw, 80px) 0 24px;
@@ -798,9 +797,8 @@ a:hover {
         <div class="reading-intro">
           <div class="reading-layout">
             <h1><strong>Terms of Service</strong></h1>
-
-            <div class="reading-lead"><p>Version 1.0 · Published 12 October 2026 · Takes effect 12 October 2026</p>
-</div>
+ <p class="reading-meta">Version 1.0 · Published 12 October 2026 · Takes effect <time id="effect" datetime="2026-10-12">12 October 2026</time></p>
+            <div class="reading-lead"></div>
           </div>
         </div>
         <div class="reading-body">
@@ -952,7 +950,7 @@ a:hover {
 <p><strong>Point of contact supported languages:</strong> English, French, German, Dutch.</p>
 <p><strong>Member State of establishment:</strong> the Netherlands.</p>
 <p><strong>Statutory representative in the EU under DSA Article 13:</strong> not required, because we are established in the Netherlands.</p>
-<p><strong>Reporting and transparency:</strong> we publish DSA transparency reports annually at minimum, in line with Article 15 in respect of the Aster ID PDS as a hosting service. The first report will cover the period from the launch of Aster ID through the end of our first reporting cycle; we will confirm the cycle dates and the publication date in our Transparency Centre once launch is established. We publish a single report covering our services together.</p>
+<p><strong>Reporting and transparency:</strong> we publish DSA transparency reports annually at minimum, in line with Article 15 in respect of the Aster ID PDS as a hosting service. The first report will cover the period from the launch of Aster ID through the end of our first reporting cycle; we will confirm the cycle dates and the publication date in our <a href="/transparency">Transparency Centre</a> once launch is established. We publish a single report covering our services together.</p>
 <p><strong>Trusted flaggers (DSA Article 22):</strong> notices submitted by entities awarded trusted flagger status by a Digital Services Coordinator are processed with priority.</p>
 <p><strong>Special protection of minors (DSA Article 28):</strong> the minimum age for the Aster ID PDS and Portal is 16 (see §4). We do not present recommendations based on profiling of any user. If a user is found to be below the applicable minimum age, we suspend access and, failing age confirmation, terminate the account or the relevant access.</p>
 <p><strong>Note on protocol-level federation:</strong> because our services operate on the AT Protocol, content may be replicated to and accessed via other atproto applications operated by third parties. Our DSA obligations cover what we do as intermediaries; they do not extend to the operations of other intermediaries on the network. See §14.</p>

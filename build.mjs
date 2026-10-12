@@ -48,6 +48,14 @@ const filters = {
 };
 
 // ── run ────────────────────────────────────────────────────────────
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// ISO date (YYYY-MM-DD) for display; goes in as datetime attribute for clients
+function formatHumanDate(iso) {
+  const [year, month, day] = iso.split("-").map(Number);
+  return `${day} ${MONTHS[month - 1]} ${year}`;
+}
+
 const data = parseContent(readFileSync(CONTENT, "utf8"), "pages/index.md");
 const domain = new URL(data.domain);
 if (domain.protocol !== "https:" || domain.pathname !== "/" || domain.search || domain.hash) {
@@ -145,7 +153,7 @@ writeFileSync(join(OUTPUT_DIR, "index.html"), staticHome.replace(/^<!DOCTYPE htm
 console.log("✓ wrote index.html");
 
 const pageTemplate = readFileSync(PAGE_TEMPLATE, "utf8");
-const pages = ["about", "faq", "privacy", "terms"];
+const pages = ["about", "faq", "privacy", "terms", "transparency", "website-privacy"];
 
 for (const slug of pages) {
   const filename = `pages/${slug}.md`;
@@ -155,6 +163,21 @@ for (const slug of pages) {
   const body = source.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)([\s\S]*)$/)?.[1];
   if (body === undefined) throw new Error(`${filename}: missing Markdown body after front matter`);
   const content = renderReadingPage(body.trim(), filename);
+  const isPlaceholder = page.placeholder === "true";
+  if (!isPlaceholder && (slug === "privacy" || slug === "terms")) {
+    if (page.version == null || page.effective == null)
+      throw new Error(`${filename}: published Privacy/Terms pages require \`version\` and \`effective\` front matter`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(page.effective)) throw new Error(`${filename}: \`effective\` must be an ISO date (YYYY-MM-DD)`);
+  }
+  const isIsoDate = (value) => typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
+  if (page.published != null && !isIsoDate(page.published)) throw new Error(`${filename}: \`published\` must be an ISO date (YYYY-MM-DD)`);
+  const metaBits = [];
+  if (page.version != null) metaBits.push(`Version ${escHtml(page.version)}`);
+  if (isIsoDate(page.published)) metaBits.push(`Published ${formatHumanDate(page.published)}`);
+  const pageEffective =
+    isIsoDate(page.effective) && metaBits.length > 0
+      ? `<p class="reading-meta">${metaBits.join(" · ")} · Takes effect <time id="effect" datetime="${escHtml(page.effective)}">${formatHumanDate(page.effective)}</time></p>`
+      : "";
   const html = render(
     pageTemplate,
     {
@@ -166,6 +189,7 @@ for (const slug of pages) {
       page_canonical: new URL(`${slug}.html`, data.domain).href,
       page_slug: slug,
       page_placeholder: page.placeholder === "true" ? " reading-page--placeholder" : "",
+      page_effective: pageEffective,
       page_heading: content.heading,
       page_intro: content.intro,
       sections: content.sections,

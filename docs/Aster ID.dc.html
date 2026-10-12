@@ -11,7 +11,7 @@
     <x-dc>
       <helmet>
         <title>Aster ID — a home for researchers on the open web</title>
-        <meta name="description" content="Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching autumn 2026." />
+        <meta name="description" content="Account and hosting for researchers on the open web — own your identity, website, data and connections. Not-for-profit, launching Autumn 2026." />
         <link rel="canonical" href="https://aster.place/" />
         <meta property="og:url" content="https://aster.place/" />
         <meta property="og:title" content="Aster ID" />
@@ -621,7 +621,7 @@ a:hover {
 }
 .reading-layout {
   box-sizing: border-box;
-  width: min(100%, 54rem);
+  width: min(100%, 57.5rem);
   margin-inline: auto;
   padding-inline: var(--page-gutter);
 }
@@ -646,6 +646,13 @@ a:hover {
   max-width: 65ch;
   font: var(--type-lead);
 }
+.reading-meta {
+  margin: 0 0 24px;
+  font: var(--type-metadata);
+  letter-spacing: var(--type-metadata-tracking);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
 .reading-lead p {
   margin: 0 0 20px;
 }
@@ -662,14 +669,6 @@ a:hover {
 }
 .reading-content {
   font: var(--type-body-default);
-}
-.reading-page--placeholder .reading-lead p,
-.reading-page--placeholder .reading-content p {
-  font-family: "Redacted Script", var(--font-family-sans-serif);
-  line-height: 1.65;
-}
-.reading-content > * {
-  max-width: 65ch;
 }
 .reading-content h2 {
   margin: clamp(48px, 6vw, 80px) 0 24px;

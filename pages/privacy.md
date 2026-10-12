@@ -1,12 +1,12 @@
 ---
-# Not yet a real privacy policy — see the page content.
-description: Aster ID privacy policy — coming once our PDS service launches.
+description: The Aster ID privacy policy.
 placeholder: false
+version: 1.0
+published: 2026-10-12
+effective: 2026-10-12
 ---
 
 # **Privacy Policy**
-
-Version 1.0 · Published 12 October 2026 · Takes effect 12 October 2026
 
 ## **Part 1: Introduction**
 

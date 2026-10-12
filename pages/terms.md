@@ -1,12 +1,12 @@
 ---
-# Not yet real terms of service — see the page content.
-description: Aster ID terms of service — coming once our PDS service launches.
+description: The Aster ID terms of service.
 placeholder: false
+version: 1.0
+published: 2026-10-12
+effective: 2026-10-12
 ---
 
 # **Terms of Service**
-
-Version 1.0 · Published 12 October 2026 · Takes effect 12 October 2026
 
 ## **Part 1: Introduction**
 
@@ -220,7 +220,7 @@ We provide this information so that authorities, users, and others can contact u
 
 **Statutory representative in the EU under DSA Article 13:** not required, because we are established in the Netherlands.
 
-**Reporting and transparency:** we publish DSA transparency reports annually at minimum, in line with Article 15 in respect of the Aster ID PDS as a hosting service. The first report will cover the period from the launch of Aster ID through the end of our first reporting cycle; we will confirm the cycle dates and the publication date in our Transparency Centre once launch is established. We publish a single report covering our services together.
+**Reporting and transparency:** we publish DSA transparency reports annually at minimum, in line with Article 15 in respect of the Aster ID PDS as a hosting service. The first report will cover the period from the launch of Aster ID through the end of our first reporting cycle; we will confirm the cycle dates and the publication date in our [Transparency Centre](/transparency) once launch is established. We publish a single report covering our services together.
 
 **Trusted flaggers (DSA Article 22):** notices submitted by entities awarded trusted flagger status by a Digital Services Coordinator are processed with priority.
 

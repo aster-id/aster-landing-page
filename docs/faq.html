@@ -607,7 +607,7 @@ a:hover {
 }
 .reading-layout {
   box-sizing: border-box;
-  width: min(100%, 54rem);
+  width: min(100%, 57.5rem);
   margin-inline: auto;
   padding-inline: var(--page-gutter);
 }
@@ -632,6 +632,13 @@ a:hover {
   max-width: 65ch;
   font: var(--type-lead);
 }
+.reading-meta {
+  margin: 0 0 24px;
+  font: var(--type-metadata);
+  letter-spacing: var(--type-metadata-tracking);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
 .reading-lead p {
   margin: 0 0 20px;
 }
@@ -648,14 +655,6 @@ a:hover {
 }
 .reading-content {
   font: var(--type-body-default);
-}
-.reading-page--placeholder .reading-lead p,
-.reading-page--placeholder .reading-content p {
-  font-family: "Redacted Script", var(--font-family-sans-serif);
-  line-height: 1.65;
-}
-.reading-content > * {
-  max-width: 65ch;
 }
 .reading-content h2 {
   margin: clamp(48px, 6vw, 80px) 0 24px;
@@ -798,7 +797,7 @@ a:hover {
         <div class="reading-intro">
           <div class="reading-layout">
             <h1>FAQs</h1>
-
+ 
             <div class="reading-lead"><p>Frequently asked questions about Aster ID.</p>
 </div>
           </div>
@@ -844,12 +843,12 @@ a:hover {
 <li>more in <a href="https://blog.aster.place/3mwqlbu2q3c2b">that blog post</a> - if you have a view, we want to hear it.</li>
 </ul>
 <h2>What's ATScience? Who’s on the Aster team?</h2>
-<p><a href="https://atproto.science/">ATScience</a> is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps.</p>
+<p><a href="https://atproto.science/">ATScience</a> is a non-profit, open-source community of researchers and developers building science-focused Atmosphere apps, while the team behind Aster can be found on the <a href="https://mu.social/profile/did:plc:ifn645rwvsuolxg7o3w7ouo4/lists/3mwqn3ruw4m22">Aster Starter Pack</a>.</p>
 <p>The Aster project is fiscally hosted by the <a href="https://www.modalfoundation.org/">Modal Foundation</a>, a Dutch non-profit who graciously agreed to provide legal and fiscal support to our project. Modal are the host of numerous Atmosphere projects, including <a href="https://eurosky.tech/">Eurosky</a>.</p>
 <h2>Where is Aster based?</h2>
 <p>Our core team are in many countries around the world.</p>
 <p>Our legal and fiscal host, the <a href="https://www.modalfoundation.org/">Modal Foundation</a>, is based in the Netherlands, making this the legal home country of our project.</p>
-<p>Aster is for researchers in all countries, but we have chosen to base our data hosting in the EU, owing to its political stability and strong privacy protection laws.</p>
+<p>Aster is for researchers in all countries. We have chosen to base our data hosting in the EU, owing to its political stability and strong privacy protection laws.</p>
 <h2>What does it cost, and how do I sign up?</h2>
 <p>An Aster identity and PDS are free.</p>
 <p>Currently, Aster is invite-only. Subscribe to <a href="https://blog.aster.place/">our blog</a> to get updates about when we'll add more users.</p>

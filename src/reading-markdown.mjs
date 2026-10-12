@@ -11,8 +11,8 @@ export function renderReadingPage(source, filename) {
     throw new Error(`${filename}: only one # heading is allowed`);
   }
   const firstSection = tokens.findIndex((token, index) => index > 2 && token.type === "heading_open" && token.tag === "h2");
-  if (firstSection === -1 || firstSection === 3) {
-    throw new Error(`${filename}: add intro content followed by a ## section`);
+  if (firstSection === -1) {
+    throw new Error(`${filename}: add a ## section`);
   }
 
   const title = tokens[1].children
