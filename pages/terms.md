@@ -8,6 +8,8 @@ effective: 2026-10-12
 
 # **Terms of Service**
 
+These Terms govern your use of the Aster ID Personal Data Server (PDS) and the Aster ID Portal. For the services' data practices, see the [Privacy Policy](/privacy); the Aster ID website itself is covered by the [Website Privacy Policy](/website-privacy).
+
 ## **Part 1: Introduction**
 
 ### **1. Welcome**

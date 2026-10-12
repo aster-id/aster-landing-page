@@ -8,6 +8,8 @@ effective: 2026-10-12
 
 # **Privacy Policy**
 
+This policy covers the Aster ID services you sign in to: the **Personal Data Server (PDS)** and the **Portal**. For the marketing website itself, see the [Website Privacy Policy](/website-privacy).
+
 ## **Part 1: Introduction**
 
 ### **1. Welcome**
