@@ -746,7 +746,13 @@ a:hover {
 }
 
 @media (max-width: 42rem) {
+  .site-header {
+    flex-wrap: wrap;
+  }
   .header-nav {
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 4px;
   }
   .header-nav .about-link {
